@@ -1,0 +1,232 @@
+<svg
+  id="Layer_1"
+  data-name="Layer 1"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 700 417.98"
+>
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #74cee1;
+      }
+      .cls-2 {
+        fill: #fff;
+      }
+      .cls-3 {
+        font-size: 14.64px;
+        fill: #5d5e5e;
+        font-family: "roboto", Roboto-Regular, Roboto, Helvetica, Arial, sans-serif;
+      }
+      .cls-4 {
+        letter-spacing: -0.01em;
+      }
+      .cls-5,
+      .cls-7 {
+        fill: none;
+      }
+      .cls-5 {
+        stroke: #5d5e5e;
+        stroke-miterlimit: 3.94;
+      }
+      .cls-6 {
+        letter-spacing: 0.01em;
+      }
+      .cls-7 {
+        stroke: #74cee1;
+        stroke-miterlimit: 10;
+        stroke-width: 2.5px;
+      }
+    </style>
+  </defs>
+  <path
+    class="cls-1"
+    d="M583,370.51H561.12l-1-2.54h23.76ZM677.1,368H653.35l.94,2.54h21.87Z"
+  />
+  <rect
+    class="cls-1"
+    x="553.96"
+    y="247.87"
+    width="129.37"
+    height="120.15"
+    rx="3.6"
+  />
+  <rect class="cls-2" x="559.96" y="253.89" width="117.35" height="107.74" />
+  <rect class="cls-1" x="561.8" y="256.03" width="113.69" height="24.38" />
+  <rect class="cls-2" x="563.55" y="261.04" width="26.65" height="6.74" />
+  <rect class="cls-1" x="584.14" y="261.73" width="5.37" height="5.37" />
+  <rect class="cls-2" x="563.55" y="268.66" width="26.65" height="6.74" />
+  <rect class="cls-1" x="584.14" y="269.35" width="5.37" height="5.37" />
+  <rect class="cls-2" x="591.29" y="261.04" width="26.65" height="6.74" />
+  <rect class="cls-1" x="611.88" y="261.73" width="5.37" height="5.37" />
+  <rect class="cls-2" x="591.29" y="268.66" width="26.65" height="6.74" />
+  <rect class="cls-1" x="611.88" y="269.35" width="5.37" height="5.37" />
+  <rect class="cls-2" x="625.07" y="268.49" width="48.56" height="6.92" />
+  <rect class="cls-2" x="662.87" y="261.04" width="10.76" height="3.6" />
+  <rect class="cls-1" x="561.8" y="282.38" width="113.69" height="24.38" />
+  <rect class="cls-2" x="563.55" y="287.39" width="26.65" height="6.74" />
+  <rect class="cls-1" x="584.14" y="288.07" width="5.37" height="5.37" />
+  <rect class="cls-2" x="563.55" y="295.01" width="26.65" height="6.74" />
+  <rect class="cls-1" x="584.14" y="295.7" width="5.37" height="5.37" />
+  <rect class="cls-2" x="591.29" y="287.39" width="26.65" height="6.74" />
+  <rect class="cls-1" x="611.88" y="288.07" width="5.37" height="5.37" />
+  <rect class="cls-2" x="591.29" y="295.01" width="26.65" height="6.74" />
+  <rect class="cls-1" x="611.88" y="295.7" width="5.37" height="5.37" />
+  <rect class="cls-2" x="625.07" y="294.84" width="48.56" height="6.92" />
+  <rect class="cls-2" x="662.87" y="287.39" width="10.76" height="3.6" />
+  <rect class="cls-1" x="561.8" y="308.72" width="113.69" height="24.38" />
+  <rect class="cls-2" x="563.55" y="313.73" width="26.65" height="6.74" />
+  <rect class="cls-1" x="584.14" y="314.42" width="5.37" height="5.37" />
+  <rect class="cls-2" x="563.55" y="321.35" width="26.65" height="6.74" />
+  <rect class="cls-1" x="584.14" y="322.04" width="5.37" height="5.37" />
+  <rect class="cls-2" x="591.29" y="313.73" width="26.65" height="6.74" />
+  <rect class="cls-1" x="611.88" y="314.42" width="5.37" height="5.37" />
+  <rect class="cls-2" x="591.29" y="321.35" width="26.65" height="6.74" />
+  <rect class="cls-1" x="611.88" y="322.04" width="5.37" height="5.37" />
+  <rect class="cls-2" x="625.07" y="321.18" width="48.56" height="6.92" />
+  <rect class="cls-2" x="662.87" y="313.73" width="10.76" height="3.6" />
+  <rect class="cls-1" x="561.8" y="335.07" width="113.69" height="24.38" />
+  <rect class="cls-2" x="563.55" y="340.08" width="26.65" height="6.74" />
+  <rect class="cls-1" x="584.14" y="340.77" width="5.37" height="5.37" />
+  <rect class="cls-2" x="563.55" y="347.7" width="26.65" height="6.74" />
+  <rect class="cls-1" x="584.14" y="348.39" width="5.37" height="5.37" />
+  <rect class="cls-2" x="591.29" y="340.08" width="26.65" height="6.74" />
+  <rect class="cls-1" x="611.88" y="340.77" width="5.37" height="5.37" />
+  <rect class="cls-2" x="591.29" y="347.7" width="26.65" height="6.74" />
+  <rect class="cls-1" x="611.88" y="348.39" width="5.37" height="5.37" />
+  <rect class="cls-2" x="625.07" y="347.53" width="48.56" height="6.92" />
+  <rect class="cls-2" x="662.87" y="340.08" width="10.76" height="3.6" />
+  <text class="cls-3" transform="translate(375.32 97.29)">
+    QuantusSeries Device
+  </text>
+  <rect class="cls-1" x="392.01" y="17.42" width="4.73" height="50.13" />
+  <rect class="cls-1" x="498.11" y="17.42" width="4.73" height="50.13" />
+  <rect class="cls-1" x="399.48" y="19.38" width="95.68" height="6.28" />
+  <rect class="cls-1" x="406.73" y="27.37" width="19.27" height="6.28" />
+  <rect class="cls-1" x="427.45" y="27.37" width="19.27" height="6.28" />
+  <rect class="cls-1" x="448.1" y="27.37" width="19.27" height="6.28" />
+  <rect class="cls-1" x="468.77" y="27.37" width="19.27" height="6.28" />
+  <rect class="cls-1" x="399.48" y="27.37" width="5.8" height="6.28" />
+  <rect class="cls-1" x="489.37" y="27.37" width="5.8" height="6.28" />
+  <rect class="cls-1" x="406.73" y="35.36" width="19.27" height="6.28" />
+  <rect class="cls-1" x="427.45" y="35.36" width="19.27" height="6.28" />
+  <rect class="cls-1" x="448.1" y="35.36" width="19.27" height="6.28" />
+  <rect class="cls-1" x="468.77" y="35.36" width="19.27" height="6.28" />
+  <rect class="cls-1" x="399.48" y="35.36" width="5.8" height="6.28" />
+  <rect class="cls-1" x="489.37" y="35.35" width="5.8" height="6.28" />
+  <rect class="cls-1" x="406.73" y="43.34" width="19.27" height="6.28" />
+  <rect class="cls-1" x="427.45" y="43.34" width="19.27" height="6.28" />
+  <rect class="cls-1" x="448.1" y="43.34" width="19.27" height="6.28" />
+  <rect class="cls-1" x="468.77" y="43.34" width="19.27" height="6.28" />
+  <rect class="cls-1" x="399.48" y="43.34" width="5.8" height="6.28" />
+  <rect class="cls-1" x="489.37" y="43.34" width="5.8" height="6.28" />
+  <rect class="cls-1" x="406.73" y="51.34" width="19.27" height="6.28" />
+  <rect class="cls-1" x="427.45" y="51.34" width="19.27" height="6.28" />
+  <rect class="cls-1" x="448.1" y="51.34" width="19.27" height="6.28" />
+  <rect class="cls-1" x="468.77" y="51.34" width="19.27" height="6.28" />
+  <rect class="cls-1" x="399.48" y="51.34" width="5.8" height="6.28" />
+  <rect class="cls-1" x="489.37" y="51.34" width="5.8" height="6.28" />
+  <rect class="cls-1" x="406.73" y="59.32" width="19.27" height="6.28" />
+  <rect class="cls-1" x="427.45" y="59.32" width="19.27" height="6.28" />
+  <rect class="cls-1" x="448.1" y="59.32" width="19.27" height="6.28" />
+  <rect class="cls-1" x="468.77" y="59.32" width="19.27" height="6.28" />
+  <rect class="cls-1" x="399.48" y="59.32" width="5.8" height="6.28" />
+  <rect class="cls-1" x="489.37" y="59.32" width="5.8" height="6.28" />
+  <rect
+    class="cls-1"
+    x="31.15"
+    y="141.17"
+    width="101.33"
+    height="68.32"
+    rx="3.35"
+  />
+  <rect class="cls-2" x="34.44" y="144.86" width="94.75" height="59.57" />
+  <path
+    class="cls-1"
+    d="M21.38,213.33A3.22,3.22,0,0,1,19,212.1L16.78,209a1,1,0,0,1,.75-1.49H146.1a1,1,0,0,1,.75,1.49l-2.19,3.14a3.22,3.22,0,0,1-2.41,1.23Z"
+  />
+  <path
+    class="cls-1"
+    d="M17.22,209.6,19,212.1a3.22,3.22,0,0,0,2.41,1.23H142.25a3.22,3.22,0,0,0,2.41-1.23l1.74-2.5Z"
+  />
+  <rect class="cls-2" x="69.77" y="207.47" width="24.09" height="3.05" />
+  <path
+    class="cls-2"
+    d="M83,143.23A1.21,1.21,0,1,1,81.81,142,1.21,1.21,0,0,1,83,143.23Z"
+  />
+  <rect
+    class="cls-1"
+    x="205.22"
+    y="161.61"
+    width="72.38"
+    height="26.35"
+    rx="2.69"
+  />
+  <rect class="cls-1" x="208.48" y="190.07" width="65.86" height="2.82" />
+  <polygon
+    class="cls-2"
+    points="217.62 165.8 211.23 165.8 211.23 168.6 212.98 168.6 212.98 171.19 215.87 171.19 215.87 168.6 217.62 168.6 217.62 165.8"
+  />
+  <polygon
+    class="cls-2"
+    points="226.53 165.8 220.15 165.8 220.15 168.6 221.89 168.6 221.89 171.19 224.79 171.19 224.79 168.6 226.53 168.6 226.53 165.8"
+  />
+  <polygon
+    class="cls-2"
+    points="235.45 165.8 229.06 165.8 229.06 168.6 230.81 168.6 230.81 171.19 233.7 171.19 233.7 168.6 235.45 168.6 235.45 165.8"
+  />
+  <polygon
+    class="cls-2"
+    points="244.36 165.8 237.98 165.8 237.98 168.6 239.72 168.6 239.72 171.19 242.62 171.19 242.62 168.6 244.36 168.6 244.36 165.8"
+  />
+  <polygon
+    class="cls-2"
+    points="217.62 177.84 211.23 177.84 211.23 180.64 212.98 180.64 212.98 183.23 215.87 183.23 215.87 180.64 217.62 180.64 217.62 177.84"
+  />
+  <polygon
+    class="cls-2"
+    points="226.53 177.84 220.15 177.84 220.15 180.64 221.89 180.64 221.89 183.23 224.79 183.23 224.79 180.64 226.53 180.64 226.53 177.84"
+  />
+  <polygon
+    class="cls-2"
+    points="235.45 177.84 229.06 177.84 229.06 180.64 230.81 180.64 230.81 183.23 233.7 183.23 233.7 180.64 235.45 180.64 235.45 177.84"
+  />
+  <polygon
+    class="cls-2"
+    points="244.36 177.84 237.98 177.84 237.98 180.64 239.72 180.64 239.72 183.23 242.62 183.23 242.62 180.64 244.36 180.64 244.36 177.84"
+  />
+  <path
+    class="cls-2"
+    d="M252.43,165.8v17.43h19.16V165.8ZM270.19,182H253.83v-14.9h16.36Z"
+  />
+  <line
+    id="actor2"
+    class="cls-5"
+    x1="199.64"
+    y1="174.52"
+    x2="137.37"
+    y2="174.52"
+  />
+  <line
+    id="actor2-2"
+    data-name="actor2"
+    class="cls-5"
+    x1="549.81"
+    y1="309.03"
+    x2="501.02"
+    y2="309.03"
+  />
+  <text class="cls-3" transform="translate(30.06 244.99)">Client Computer</text>
+  <text class="cls-3" transform="translate(188.88 222.63)">Network Switch</text>
+  <text class="cls-3" transform="translate(380.83 361.57)">
+    Company Network
+  </text>
+  <text class="cls-3" transform="translate(580.71 400.94)">
+    DHCP Server
+  </text>
+  <path
+    class="cls-7"
+    d="M475,328.24a20.9,20.9,0,0,0,0-41.79h-1.44V285a20.9,20.9,0,0,0-40.61-6.94l-.16.48-.42-.32a15.5,15.5,0,0,0-25,12.24v6.77h-5a15.5,15.5,0,1,0,0,31Z"
+  />
+  <polyline class="cls-5" points="240.47 155.76 345.29 46.48 386.81 46.48" />
+  <polyline class="cls-5" points="271.59 231.88 345.29 308.71 381.63 308.71" />
+</svg>

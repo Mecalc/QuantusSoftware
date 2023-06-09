@@ -1,0 +1,119 @@
+<svg
+  id="Layer_1"
+  data-name="Layer 1"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 489.4 136.25"
+>
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #74cee1;
+      }
+      .cls-2 {
+        fill: #fff;
+      }
+      .cls-3 {
+        fill: none;
+        stroke: #5d5e5e;
+        stroke-miterlimit: 3.94;
+      }
+      .cls-4 {
+        font-size: 14.64px;
+        fill: #5d5e5e;
+        font-family: "roboto", Roboto-Regular, Roboto, Helvetica, Arial, sans-serif;
+      }
+      .cls-5 {
+        letter-spacing: -0.01em;
+      }
+    </style>
+  </defs>
+  <rect
+    class="cls-1"
+    x="29.43"
+    y="19.33"
+    width="101.33"
+    height="68.32"
+    rx="3.35"
+  />
+  <rect class="cls-2" x="32.72" y="23.01" width="94.75" height="59.57" />
+  <path
+    class="cls-1"
+    d="M19.66,91.49a3.25,3.25,0,0,1-2.41-1.24l-2.19-3.13a1,1,0,0,1,.75-1.5H144.38a1,1,0,0,1,.75,1.5l-2.19,3.13a3.25,3.25,0,0,1-2.41,1.24Z"
+  />
+  <path
+    class="cls-1"
+    d="M15.5,87.75l1.75,2.5a3.25,3.25,0,0,0,2.41,1.24H140.53a3.25,3.25,0,0,0,2.41-1.24l1.74-2.5Z"
+  />
+  <rect class="cls-2" x="68.05" y="85.62" width="24.09" height="3.05" />
+  <path
+    class="cls-2"
+    d="M81.3,21.38a1.21,1.21,0,1,1-1.21-1.21A1.21,1.21,0,0,1,81.3,21.38Z"
+  />
+  <line
+    id="actor2"
+    class="cls-3"
+    x1="222.67"
+    y1="55.41"
+    x2="135.65"
+    y2="55.41"
+  />
+  <path
+    class="cls-1"
+    d="M239.69,68A11,11,0,0,0,229.4,57.23l-.23,4.13A7.16,7.16,0,0,1,235.56,68Z"
+  />
+  <path
+    class="cls-1"
+    d="M246.89,67.88a17.66,17.66,0,0,0-17.06-17.83l-.27,4.44a13.54,13.54,0,0,1,12.88,13.43Z"
+  />
+  <path
+    class="cls-1"
+    d="M254.14,67.8a24.42,24.42,0,0,0-23.91-25L230,47.37a20.17,20.17,0,0,1,19.59,20.48Z"
+  />
+  <text class="cls-4" transform="translate(28.34 121.18)">Client Computer</text>
+  <text class="cls-4" transform="translate(228 98.82)">WiFi</text>
+  <line
+    id="actor2-2"
+    data-name="actor2"
+    class="cls-3"
+    x1="343.31"
+    y1="55.41"
+    x2="256.29"
+    y2="55.41"
+  />
+  <text class="cls-4" transform="translate(332.28 110.21)">
+    QuantusSeries Device
+  </text>
+  <rect class="cls-1" x="348.98" y="30.34" width="4.73" height="50.13" />
+  <rect class="cls-1" x="455.07" y="30.34" width="4.73" height="50.13" />
+  <rect class="cls-1" x="356.45" y="32.29" width="95.68" height="6.28" />
+  <rect class="cls-1" x="363.69" y="40.29" width="19.27" height="6.28" />
+  <rect class="cls-1" x="384.41" y="40.29" width="19.27" height="6.28" />
+  <rect class="cls-1" x="405.06" y="40.29" width="19.27" height="6.28" />
+  <rect class="cls-1" x="425.73" y="40.29" width="19.27" height="6.28" />
+  <rect class="cls-1" x="356.45" y="40.29" width="5.8" height="6.28" />
+  <rect class="cls-1" x="446.33" y="40.28" width="5.8" height="6.28" />
+  <rect class="cls-1" x="363.69" y="48.28" width="19.27" height="6.28" />
+  <rect class="cls-1" x="384.41" y="48.28" width="19.27" height="6.28" />
+  <rect class="cls-1" x="405.06" y="48.28" width="19.27" height="6.28" />
+  <rect class="cls-1" x="425.73" y="48.28" width="19.27" height="6.28" />
+  <rect class="cls-1" x="356.45" y="48.28" width="5.8" height="6.28" />
+  <rect class="cls-1" x="446.33" y="48.27" width="5.8" height="6.28" />
+  <rect class="cls-1" x="363.69" y="56.26" width="19.27" height="6.28" />
+  <rect class="cls-1" x="384.41" y="56.26" width="19.27" height="6.28" />
+  <rect class="cls-1" x="405.06" y="56.26" width="19.27" height="6.28" />
+  <rect class="cls-1" x="425.73" y="56.26" width="19.27" height="6.28" />
+  <rect class="cls-1" x="356.45" y="56.26" width="5.8" height="6.28" />
+  <rect class="cls-1" x="446.33" y="56.26" width="5.8" height="6.28" />
+  <rect class="cls-1" x="363.69" y="64.26" width="19.27" height="6.28" />
+  <rect class="cls-1" x="384.41" y="64.26" width="19.27" height="6.28" />
+  <rect class="cls-1" x="405.06" y="64.26" width="19.27" height="6.28" />
+  <rect class="cls-1" x="425.73" y="64.26" width="19.27" height="6.28" />
+  <rect class="cls-1" x="356.45" y="64.26" width="5.8" height="6.28" />
+  <rect class="cls-1" x="446.33" y="64.25" width="5.8" height="6.28" />
+  <rect class="cls-1" x="363.69" y="72.24" width="19.27" height="6.28" />
+  <rect class="cls-1" x="384.41" y="72.24" width="19.27" height="6.28" />
+  <rect class="cls-1" x="405.06" y="72.24" width="19.27" height="6.28" />
+  <rect class="cls-1" x="425.73" y="72.24" width="19.27" height="6.28" />
+  <rect class="cls-1" x="356.45" y="72.24" width="5.8" height="6.28" />
+  <rect class="cls-1" x="446.33" y="72.24" width="5.8" height="6.28" />
+</svg>

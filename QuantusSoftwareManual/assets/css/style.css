@@ -1,0 +1,681 @@
+@font-face {
+  font-family: "roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("../fonts/roboto.woff2") format("woff2"); /* Modern browsers */
+}
+
+@font-face {
+  font-family: "helvetica-narrow";
+  src: url("../fonts/helvetica-narrow-webfont.woff2") format("woff2"),
+    url("../fonts/helvetica-narrow-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "helvetica-narrow-bold";
+  src: url("../fonts/helvetica-narrow-bold-webfont.woff2") format("woff2"),
+    url("../fonts/helvetica-narrow-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: "helvetica-narrow", "roboto", Arial, Helvetica, sans-serif;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+body {
+  font-size: 12pt;
+  line-height: 1.5;
+  float: none !important;
+  max-width: 780px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+  color: #000;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 39px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  margin-top: 80px;
+}
+
+h2 {
+  /* text-align: center; */
+  font-size: 26px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+h3 {
+  font-size: 21px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  line-height: 1.5em;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  text-transform: uppercase;
+}
+h4 {
+  font-size: 19px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+h5,
+h6 {
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+h5 {
+  font-weight: bold;
+}
+
+#title-block-header {
+  display: none;
+}
+.header-block-space {
+  height: 212px;
+  width: 100%;
+}
+/* .title {
+  position: relative;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 82px;
+  font-size: 49px;
+  color: #fff;
+  z-index: 10000;
+  margin-top: 0;
+  letter-spacing: 4px;
+} */
+/* 
+	These adjust the gap between headings and content. 
+	* H1 should have a nice big margin to indicate a new section.
+	* All other headings should leave a margin after content.
+*/
+/* * + h1 {
+  margin-top: 42pt;
+}
+* + h2,
+* + h3,
+* + h4,
+* + h5 {
+  margin-top: 24pt;
+} */
+
+/* Headings that have no content in between should be closer together */
+/* h1 + h2,
+h2 + h3,
+h3 + h4,
+h4 + h5 {
+  margin-top: 12pt;
+} */
+
+table {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.SupportedFeatures table tr td:first-child
+{
+    width: 20em;
+}
+
+table th {
+  letter-spacing: 1px;
+  padding: 0.6em;
+  text-align: left;
+  background-color: #eee;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}
+
+table td {
+  color: #333;
+  padding: 0.2em 0.4em;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  vertical-align: top;
+}
+
+/* These only apply to endpoint tables */
+[id$="-endpoints"] + table td:nth-child(1) {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 85%;
+}
+[id$="-endpoints"] + table td:nth-child(2) {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 85%;
+}
+[id$="-endpoints"] + table td:nth-child(3) {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 85%;
+}
+
+p + table {
+  margin-top: 20px;
+}
+/* Bullet lists. I don't like the top margin, removing it */
+/* ul {
+  margin-top: 0.25em;
+}
+ul ~ * {
+  margin-bottom: 0.25em;
+} */
+
+/* This is the code block/ preformatted text. Border, indented and background color */
+code {
+  color: #353535;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  padding: 0.3em 0.6em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+}
+
+pre,
+pre.sourceCode {
+  background: #f0f0f0;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  line-height: 1.6;
+  max-width: 100%;
+  overflow: auto;
+  padding: 20px;
+  page-break-inside: avoid;
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+pre > code {
+  padding: 0;
+}
+
+div.sourceCode {
+  margin: 0;
+}
+/* Remove the annoying line below links. Only add them when you hover over */
+a {
+  color: #00a1ff;
+}
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  text-decoration: underline;
+}
+
+dl {
+  font-family: "helvetica-narrow", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: normal;
+  color: #5d5d5d;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+dt {
+  float: left;
+  width: 18%;
+  padding: 0;
+  margin: 0;
+  margin-right: 1%;
+  text-align: right;
+  margin-top: 10px;
+  color: #000;
+  font-weight: bold;
+}
+dd {
+  float: left;
+  width: 77%;
+  padding: 0;
+  margin: 0;
+  color: #5d5d5d;
+  margin-top: 10px;
+}
+dd p {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  font-family: "helvetica-narrow", Arial, Helvetica, sans-serif;
+  color: #5d5d5d;
+  line-height: 1.8;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  padding-left: 2em;
+  text-transform: none;
+  padding-inline-start: 17px;
+}
+ol ul,
+ol ol,
+ul ol,
+ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+ol > li,
+ul > li {
+  font-family: "helvetica-narrow", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: normal;
+  color: #5d5d5d;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  padding-left: 9px;
+}
+p {
+  font-family: "helvetica-narrow", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: normal;
+  color: #5d5d5d;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+p + p {
+  margin-top: 20px;
+}
+
+nav {
+  font-size: 14px;
+}
+nav ul {
+  font-family: "helvetica-narrow", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: 2px;
+  padding-left: 2em;
+  text-transform: none;
+  list-style: none;
+  padding-inline-start: 12px;
+}
+nav ul > li {
+  font-family: "helvetica-narrow", Arial, Helvetica, sans-serif;
+  margin-top: 0.25em;
+  line-height: 1.4;
+  padding-left: 0;
+  font-size: 16px;
+  letter-spacing: 0px;
+  word-break: break-all;
+}
+nav > ul {
+  margin-left: -20px;
+  margin-top: 30px;
+}
+nav ul > li > a {
+  text-decoration: none;
+  color: #5d5d5d;
+  display: block;
+}
+nav > ul > li > a {
+  font-weight: bold;
+  color: #000;
+  letter-spacing: 1px;
+}
+nav > ul > li > ul > li > a {
+  color: #000;
+}
+
+@media (min-width: 1175px) {
+  h2#toc-title {
+    display: none;
+  }
+  nav {
+    position: absolute;
+    left: 0;
+    top: 212px;
+    padding: 30px;
+    background-color: #f0f0f0;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    width: 280px;
+  }
+  nav.stick {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+
+  nav > ul {
+    margin-left: -20px;
+    margin-top: -12px;
+  }
+}
+
+@media (max-width: 1550px) and (min-width: 1176px) {
+  body {
+    margin-left: 360px;
+  }
+}
+
+.title-heading {
+  font-family: "helvetica-narrow", Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 27px;
+  line-height: 1.3em;
+  letter-spacing: 10px;
+  margin: 0 0px;
+  font-weight: lighter;
+  color: #a5a4a4;
+}
+.header-background {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 212px;
+}
+/* Remove this section if we dont want numbering in headers */
+/*
+body {
+	counter-reset : h1;
+}
+h1 {
+	counter-reset : h2;
+}
+h2 {
+	counter-reset : h3;
+}
+h3 {
+	counter-reset : h4;
+}
+h4 {
+	counter-reset : h5;
+}
+body h1:before {
+	content : counter(h1,decimal) ". ";
+	counter-increment : h1;
+}
+body h2:before {
+	content : counter(h1,decimal) "." counter(h2,decimal) ". ";
+	counter-increment : h2;
+}
+body h3:before {
+	content : counter(h1,decimal) "." counter(h2,decimal) "." counter(h3,decimal) ". ";
+	counter-increment : h3;
+}
+body h4:before {
+	content : counter(h1,decimal) "." counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) ". ";
+	counter-increment : h4;
+}
+body h5:before {
+	content : counter(h1,decimal) "." counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "." counter(h5,decimal) ". ";
+	counter-increment : h5;
+}
+h1.nocount:before, h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
+	content : "";
+	counter-increment : none;
+}
+*/
+
+.body-copy {
+  font-size: 17px;
+  line-height: 2em;
+  padding: 0px 5px 3px 0;
+  letter-spacing: 1px;
+  margin: 0 0px;
+  font-weight: normal;
+  color: #5d5d5d;
+}
+[data-uk-tooltip] {
+  border-bottom: 1px dotted #000;
+}
+
+[data-uk-tooltip]:hover {
+  cursor: help;
+  background-color: rgba(0, 0, 0, 0.1);
+  outline-color: rgba(0, 0, 0, 0.1);
+  outline-width: 4px;
+  outline-style: solid;
+  border-bottom-color: transparent;
+}
+.uk-tooltip {
+  font-family: "roboto", Arial, Helvetica, sans-serif;
+  display: none;
+  position: absolute;
+  z-index: 1030;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 15px 20px;
+  line-height: 18px;
+  text-align: left;
+  border-radius: 2px;
+  max-width: 300px;
+  background: #585858;
+  color: #fff;
+  text-shadow: none;
+  z-index: 10000;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.uk-tooltip:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px dashed #585858;
+}
+
+.uk-tooltip-top:after,
+.uk-tooltip-top-left:after,
+.uk-tooltip-top-right:after {
+  bottom: -5px;
+  border-top-style: solid;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: #585858;
+}
+
+.uk-tooltip-bottom:after,
+.uk-tooltip-bottom-left:after,
+.uk-tooltip-bottom-right:after {
+  top: -5px;
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: #585858;
+}
+
+.uk-tooltip-top:after,
+.uk-tooltip-bottom:after {
+  left: 50%;
+  margin-left: -5px;
+}
+
+.uk-tooltip-top-left:after,
+.uk-tooltip-bottom-left:after {
+  left: 10px;
+}
+
+.uk-tooltip-top-right:after,
+.uk-tooltip-bottom-right:after {
+  right: 10px;
+}
+
+.uk-tooltip-left:after {
+  right: -5px;
+  top: 50%;
+  margin-top: -5px;
+  border-left-style: solid;
+  border-right: none;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: #0096db;
+}
+
+.uk-tooltip-right:after {
+  left: -5px;
+  top: 50%;
+  margin-top: -5px;
+  border-right-style: solid;
+  border-left: none;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: #0096db;
+}
+.uk-tooltip *:first-child {
+  margin-top: 0;
+}
+.uk-tooltip *:last-child {
+  margin-bottom: 0;
+}
+.uk-tooltip ul {
+}
+.uk-tooltip p,
+.uk-tooltip ul > li,
+.uk-tooltip ol > li {
+  font-family: "roboto", Arial, Helvetica, sans-serif;
+  line-height: 18px;
+  text-align: left;
+  color: #fff;
+  text-shadow: none;
+  font-size: 11px;
+  letter-spacing: 1px;
+  visibility: visible;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 3px;
+}
+
+code span.dt {
+  color: #005cc5 !important;
+}
+code span.ot {
+  color: #585858 !important;
+}
+code span.dv {
+  color: #cc1300 !important;
+}
+code span.st {
+  color: #2b7d90 !important;
+}
+code span.er {
+  color: #585858 !important;
+}
+
+code.sourceCode.bash span.kw {
+  color: #585858 !important;
+}
+code.sourceCode.bash span.st {
+  color: #005cc5 !important;
+}
+code.sourceCode.bash span.st + span.ex {
+  color: #cc1300 !important;
+}
+code.sourceCode.bash span.st + span.st {
+  color: #2b7d90 !important;
+}
+
+.grid .tick {
+  stroke: lightgrey;
+  opacity: 0.3;
+  shape-rendering: crispEdges;
+}
+.grid path {
+  stroke-width: 0;
+}
+
+#tag {
+  color: white;
+  background: #FA283D;
+  width: 150px;
+  position: absolute;
+  display: none;
+  padding:3px 6px;
+  margin-left: -80px;
+  font-size: 11px;
+}
+
+#tag:before {
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  left: 50%;
+  margin-left: -5px;
+  position: absolute;
+  width: 0;
+  border-width: 10px;
+  border-bottom-color: #FA283D;
+  top: -20px;
+}
+.taskText {
+  fill:white;
+  text-anchor:middle;
+}
+.taskTextOutsideRight {
+  fill:black;
+  text-anchor:start;
+}
+.taskTextOutsideLeft {
+  fill:black;
+  text-anchor:end;
+}
+
+.nav-active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
