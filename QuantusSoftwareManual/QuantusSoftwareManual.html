@@ -139,7 +139,7 @@
 <li><a href="#sample-type">Sample Type</a></li>
 </ul></li>
 <li><a href="#known-issues">Known issues</a></li>
-<li><a href="#supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.2.0</span></a>
+<li><a href="#supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.2.1</span></a>
 <ul>
 <li><a href="#local-storage">Local storage</a></li>
 <li><a href="#supported-hardware">Supported Hardware</a>
@@ -333,9 +333,14 @@
 <li><strong>Programming Language Independent</strong>: Almost all programming languages have support for connecting to RESTful Interfaces.</li>
 <li><strong>Accelerated Integration</strong>: Integration time is reduced compared to other types of interfaces.</li>
 </ul>
-<p>The current release of <strong>Quantus</strong>Software is <span class="QSoftwareVersion"><strong>Q</strong> 2.2.0</span>.</p>
+<p>The current release of <strong>Quantus</strong>Software is <span class="QSoftwareVersion"><strong>Q</strong> 2.2.1</span>.</p>
 <h1 id="changelog">Changelog</h1>
-<p><strong>Q2.1.1 to <span class="QSoftwareVersion"><strong>Q</strong> 2.2.0</span></strong></p>
+<p><strong>Q2.2.0 to <span class="QSoftwareVersion"><strong>Q</strong> 2.2.1</span></strong></p>
+<ul>
+<li><strong>Q</strong>Server - Implemented a High Sampling Rate option for the CHS42X4, ICS421 and ICS425 Modules. In this Operation mode the Module will disable channels 2 and 5 allowing the remaining 4 channels to allocate at an effective Sampling Rate of MSR divide by 1.</li>
+<li><strong>Q</strong>Server - Improved buffer level calculations. This adds a bit more stability if there is jitter on the client streaming application.</li>
+</ul>
+<p><strong>Q2.1.1 to Q2.2.0</strong></p>
 <ul>
 <li><strong>Q</strong>Acquire - Added ability to use <strong>Q</strong>Acquire as a pop-out panel where it can be used to change all <strong>Q</strong>Server settings without streaming or rendering, in a compact form factor. To enable it simply append <code>?embedded</code> to the <strong>Q</strong>Acquire link in the browser. The complete URL should be <code>http://&lt;Device&gt;/QAcquire/?embedded</code></li>
 <li><strong>Q</strong>Acquire - Added user controls for the properties layout and fixed a couple of user interface issues:
@@ -1279,7 +1284,7 @@ DataStats Stats</td>
 </tr>
 </tbody>
 </table>
-<h1 id="supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.2.0</span></h1>
+<h1 id="supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.2.1</span></h1>
 <p><strong>Quantus</strong>Software supports the following features:</p>
 <table style="width:69%;">
 <colgroup>
@@ -4294,7 +4299,7 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Disabled<br/>Enabled</td>
+<td>Disabled<br/>Enabled<br/>Four Channel High Sample Rate</td>
 <td>Enabled</td>
 </tr>
 </tbody>
@@ -4350,6 +4355,62 @@ System Only</td>
 <tr class="even">
 <td>Channel 4, 5 and 6 Operation Mode</td>
 <td>Gets or sets the operation mode for channels 4, 5 and 6.</td>
+<td>Disabled<br/>Voltage Input<br/>ICP® Input<br/>Charge Input</td>
+<td>Voltage Input</td>
+</tr>
+</tbody>
+</table>
+<h6 id="four-channel-high-sample-rate-settings">Four Channel High Sample Rate Settings</h6>
+<p>This operation mode will set the Module to a “powered on” state, and will enable a higher sampling rate for data streaming at the cost of disabling channel 2 and 5. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 37%" />
+<col style="width: 28%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Description</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>High Sample Rate</td>
+<td>Gets or sets this Module’s channels’ effective sample rate as a division of master sample rate.</td>
+<td>MSR Divide by 1</td>
+<td>MSR Divide by 1</td>
+</tr>
+<tr class="even">
+<td>Grounding</td>
+<td>Gets or sets the grounding isolation switch on the Module.</td>
+<td>Floating<br/>Grounded</td>
+<td>Floating</td>
+</tr>
+<tr class="odd">
+<td>Bridge Negative Channels 1:3</td>
+<td>Gets or sets the connection between the negative lines of the first and third channel.</td>
+<td>Open<br/>Closed</td>
+<td>Open</td>
+</tr>
+<tr class="even">
+<td>Bridge Negative Channels 4:6</td>
+<td>Gets or sets the connection between the negative lines of the forth and sixth channel.</td>
+<td>Open<br/>Closed</td>
+<td>Open</td>
+</tr>
+<tr class="odd">
+<td>Channel 1 and 3 Operation Mode</td>
+<td>Gets or sets the operation mode for channels 1 and 3.</td>
+<td>Disabled<br/>Voltage Input<br/>ICP® Input<br/>Charge Input</td>
+<td>Voltage Input</td>
+</tr>
+<tr class="even">
+<td>Channel 4 and 6 Operation Mode</td>
+<td>Gets or sets the operation mode for channels 4 and 6.</td>
 <td>Disabled<br/>Voltage Input<br/>ICP® Input<br/>Charge Input</td>
 <td>Voltage Input</td>
 </tr>
@@ -5040,7 +5101,7 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Enabled<br/>Disabled</td>
+<td>Disabled<br/>Enabled<br/>Four Channel High Sample Rate</td>
 <td>Enabled</td>
 </tr>
 </tbody>
@@ -5066,8 +5127,52 @@ System Only</td>
 <tr class="odd">
 <td>Sample Rate</td>
 <td>Gets or sets this Module’s channels’ effective sample rate as a division of master sample rate.</td>
-<td>MSR Divide by 256<br/>MSR Divide by 2<br/>MSR Divide by 4<br/>MSR Divide by 8<br/>MSR Divide by 16<br/>MSR Divide by 32<br/>MSR Divide by 64<br/>MSR Divide by 128</td>
+<td>MSR Divide by 2<br/>MSR Divide by 4<br/>MSR Divide by 8<br/>MSR Divide by 16<br/>MSR Divide by 32<br/>MSR Divide by 64<br/>MSR Divide by 128<br/>MSR Divide by 256</td>
 <td>MSR Divide by 256</td>
+</tr>
+<tr class="even">
+<td>Grounding</td>
+<td>Gets or sets the grounding isolation switch on the Module.</td>
+<td>Floating<br/>Grounded</td>
+<td>Floating</td>
+</tr>
+<tr class="odd">
+<td>Bridge Negative Channels 1:3</td>
+<td>Gets or sets the connection between the negative lines of the first and third channel.</td>
+<td>Open<br/>Closed</td>
+<td>Open</td>
+</tr>
+<tr class="even">
+<td>Bridge Negative Channels 4:6</td>
+<td>Gets or sets the connection between the negative lines of the forth and sixth channel.</td>
+<td>Open<br/>Closed</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+<h6 id="four-channel-high-sample-rate-settings-1">Four Channel High Sample Rate Settings</h6>
+<p>This operation mode will set the Module to a “powered on” state, and will enable a higher sampling rate for data streaming at the cost of disabling 2 channels. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 48%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Description</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>High Sample Rate</td>
+<td>Gets or sets this Module’s channels’ effective sample rate as a division of master sample rate.</td>
+<td>MSR Divide by 1</td>
+<td>MSR Divide by 1</td>
 </tr>
 <tr class="even">
 <td>Grounding</td>
@@ -5109,7 +5214,7 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Voltage Input<br/>Disabled<br/>ICP® Input</td>
+<td>Disabled<br/>Voltage Input<br/>ICP® Input</td>
 <td>Voltage Input</td>
 </tr>
 </tbody>
@@ -5135,7 +5240,7 @@ System Only</td>
 <tr class="odd">
 <td>Voltage Range</td>
 <td>Gets or sets the channel’s input voltage range.</td>
-<td>10 V<br/>100 mV<br/>1 V</td>
+<td>100 mV<br/>1 V<br/>10 V</td>
 <td>10 V</td>
 </tr>
 <tr class="even">
@@ -5173,7 +5278,7 @@ System Only</td>
 <tr class="odd">
 <td>Voltage Range</td>
 <td>Gets or sets the channel’s input voltage range.</td>
-<td>10 V<br/>100 mV<br/>1 V</td>
+<td>100 mV<br/>1 V<br/>10 V</td>
 <td>10 V</td>
 </tr>
 <tr class="even">
@@ -5185,7 +5290,7 @@ System Only</td>
 <tr class="odd">
 <td>Coupling</td>
 <td>Gets or sets the channel’s highpass filters or hardware coupling.</td>
-<td>AC with 1 Hz Filter<br/>AC</td>
+<td>AC<br/>AC with 1 Hz Filter</td>
 <td>AC with 1 Hz Filter</td>
 </tr>
 <tr class="even">
@@ -5218,7 +5323,7 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Disabled<br/>Enabled</td>
+<td>Disabled<br/>Enabled<br/>Four Channel High Sample Rate</td>
 <td>Enabled</td>
 </tr>
 </tbody>
@@ -5246,6 +5351,50 @@ System Only</td>
 <td>Gets or sets this Module’s channels’ effective sample rate as a division of master sample rate.</td>
 <td>MSR Divide by 2<br/>MSR Divide by 4<br/>MSR Divide by 8<br/>MSR Divide by 16<br/>MSR Divide by 32<br/>MSR Divide by 64<br/>MSR Divide by 128<br/>MSR Divide by 256</td>
 <td>MSR Divide by 256</td>
+</tr>
+<tr class="even">
+<td>Grounding</td>
+<td>Gets or sets the grounding isolation switch on the Module.</td>
+<td>Floating<br/>Grounded</td>
+<td>Floating</td>
+</tr>
+<tr class="odd">
+<td>Bridge Negative Channels 1:3</td>
+<td>Gets or sets the connection between the negative lines of the first and third channel.</td>
+<td>Open<br/>Closed</td>
+<td>Open</td>
+</tr>
+<tr class="even">
+<td>Bridge Negative Channels 4:6</td>
+<td>Gets or sets the connection between the negative lines of the forth and sixth channel.</td>
+<td>Open<br/>Closed</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+<h6 id="four-channel-high-sample-rate-settings-2">Four Channel High Sample Rate Settings</h6>
+<p>This operation mode will set the Module to a “powered on” state, and will enable a higher sampling rate for data streaming at the cost of disabling 2 channels. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 48%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Description</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>High Sample Rate</td>
+<td>Gets or sets this Module’s channels’ effective sample rate as a division of master sample rate.</td>
+<td>MSR Divide by 1</td>
+<td>MSR Divide by 1</td>
 </tr>
 <tr class="even">
 <td>Grounding</td>
@@ -6006,7 +6155,7 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Enabled<br/>Disabled</td>
+<td>Disabled<br/>Enabled</td>
 <td>Enabled</td>
 </tr>
 </tbody>
@@ -6032,13 +6181,13 @@ System Only</td>
 <tr class="odd">
 <td>Voltage Range</td>
 <td>Gets or sets the channel’s input voltage range.</td>
-<td>30 V<br/>2 V<br/>12 V<br/>60 V</td>
+<td>2 V<br/>12 V<br/>30 V<br/>60 V</td>
 <td>30 V</td>
 </tr>
 <tr class="even">
 <td>Coupling</td>
 <td>Gets or sets the channel’s highpass filters or hardware coupling.</td>
-<td>AC<br/>DC</td>
+<td>DC<br/>AC</td>
 <td>AC</td>
 </tr>
 <tr class="odd">
