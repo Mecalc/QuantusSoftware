@@ -139,7 +139,7 @@
 <li><a href="#sample-type">Sample Type</a></li>
 </ul></li>
 <li><a href="#known-issues">Known issues</a></li>
-<li><a href="#supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.2.1</span></a>
+<li><a href="#supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.2.3</span></a>
 <ul>
 <li><a href="#local-storage">Local storage</a></li>
 <li><a href="#supported-hardware">Supported Hardware</a>
@@ -333,9 +333,29 @@
 <li><strong>Programming Language Independent</strong>: Almost all programming languages have support for connecting to RESTful Interfaces.</li>
 <li><strong>Accelerated Integration</strong>: Integration time is reduced compared to other types of interfaces.</li>
 </ul>
-<p>The current release of <strong>Quantus</strong>Software is <span class="QSoftwareVersion"><strong>Q</strong> 2.2.1</span>.</p>
+<p>The current release of <strong>Quantus</strong>Software is <span class="QSoftwareVersion"><strong>Q</strong> 2.2.3</span>.</p>
 <h1 id="changelog">Changelog</h1>
-<p><strong>Q2.2.0 to <span class="QSoftwareVersion"><strong>Q</strong> 2.2.1</span></strong></p>
+<p><strong>Q2.2.2 to <span class="QSoftwareVersion"><strong>Q</strong> 2.2.3</span></strong></p>
+<ul>
+<li>QServer: Fix a bug where CAN modules do not work when PTP is enabled on the PQ45.</li>
+</ul>
+<p><strong>Q2.2.1 to Q2.2.2</strong></p>
+<ul>
+<li><strong>Q</strong>DeviceDiscovery - Duplicate entries are now removed if the client PC has multiple network interfaces on the same subnet. In general, having multiple interfaces on the same subnet can lead to unexpected network behavior and potential issues. This network configuration is inadvisable due to it’s undefined behaviour.</li>
+<li>PQ45 Power Supply update:
+<ul>
+<li>Dim OLED after 2min, turn off after 5min - DEFAULT setting. Heartbeat LED now active on front panel - 1 brief flash (blue) every 5s.</li>
+<li>Add support for BAT5203 which supports in system sleep.</li>
+<li>Dynamic Charge now forced ON by default, will always be active after a reboot. Charge will start when battery &lt;= 90%. Default minimum Dynamic Charge power changed to:
+<ul>
+<li>1 battery = 5W</li>
+<li>2 batteries in system = 8W</li>
+<li>3 batteries = 10W</li>
+</ul></li>
+<li>Adjust temperature protection, shutdown at &gt;=86degC for 1 min, immediate shutdown at &gt;=90degC.</li>
+</ul></li>
+</ul>
+<p><strong>Q2.2.0 to Q2.2.1</strong></p>
 <ul>
 <li><strong>Q</strong>Server - Implemented a High Sampling Rate option for the CHS42X4, ICS421 and ICS425 Modules. In this Operation mode the Module will disable channels 2 and 5 allowing the remaining 4 channels to allocate at an effective Sampling Rate of MSR divide by 1.</li>
 <li><strong>Q</strong>Server - Improved buffer level calculations. This adds a bit more stability if there is jitter on the client streaming application.</li>
@@ -1284,7 +1304,7 @@ DataStats Stats</td>
 </tr>
 </tbody>
 </table>
-<h1 id="supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.2.1</span></h1>
+<h1 id="supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.2.3</span></h1>
 <p><strong>Quantus</strong>Software supports the following features:</p>
 <table style="width:69%;">
 <colgroup>
@@ -8910,7 +8930,7 @@ Raw analog input samples<br />
 <tr class="odd">
 <td>Timestamp</td>
 <td>64-bit floating point</td>
-<td>Timestamp captured by the CAN device when the message was received, a timestamp value is relative to the start of the measurement</td>
+<td>Timestamp captured by the CAN device when the message was received, a timestamp value is relative to the start of the measurement. The timestamp is measured in seconds.</td>
 </tr>
 <tr class="even">
 <td>ID</td>
@@ -9122,7 +9142,7 @@ duration = \Big(\frac{1}{Sampling Rate (Hz)}\Big)
 <h3 id="temperature">Temperature</h3>
 <p><strong>Quantus</strong>Series devices can synchronise accurately over the entire operational range of temperatures. However, sudden temperature changes have a degraded synchronisation accuracy. A <strong>Quantus</strong>Series device’s internal temperature should be allowed to stabilise before a high accuracy can be achieved.</p>
 <h2 id="configuring-ptp">Configuring PTP</h2>
-<p>PTP can be enabled, disabled and configured using the web interface. Open the web server and navigate to the System Settings, where the <em>PTP synchronisation</em> tab is available.</p>
+<p>PTP synchronisation of the <strong>Quantus</strong>Series device can be enabled, disabled and configured using the web interface. Open the web server and navigate to the System Settings, where the <em>PTP synchronisation</em> tab is available.</p>
 <p>Configuration options are:</p>
 <table>
 <colgroup>
@@ -9149,7 +9169,7 @@ duration = \Big(\frac{1}{Sampling Rate (Hz)}\Big)
 <td style="text-align: left;">The domain number in which the <strong>Quantus</strong>Series device operates. A device can only operate in a single domain. Synchronisation messages from different domains are ignored.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Accuracy Threshold</td>
+<td style="text-align: left;">Accuracy threshold</td>
 <td style="text-align: left;">The maximum synchronisation offset allowed before a <strong>Quantus</strong>Series device is considered to no longer be synchronised. PTP synchronisation on a <strong>Quantus</strong>Series device is a best effort service, therefore the achievable synchronisation accuracy is network related. A <strong>Quantus</strong>Series device will synchronise to the highest achievable accuracy. If the the synchronisation offset exceeds the threshold the user will be informed of the event.</td>
 </tr>
 <tr class="even">
@@ -9197,7 +9217,7 @@ duration = \Big(\frac{1}{Sampling Rate (Hz)}\Big)
 <td style="text-align: left;">The <strong>Quantus</strong>Series device is a Slave clock synchronised to the Master clock. The accuracy is in the acceptable range.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Bad Accuracy</td>
+<td style="text-align: left;">Bad accuracy</td>
 <td style="text-align: left;">The synchronisation offset is above the specified <strong>Accuracy threshold</strong>.</td>
 </tr>
 <tr class="even">
@@ -9209,7 +9229,7 @@ duration = \Big(\frac{1}{Sampling Rate (Hz)}\Big)
 <td style="text-align: left;">The device isn’t synchronised. This can happen when the device is set to Slave Only mode and there isn’t a master on the network.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Not Available</td>
+<td style="text-align: left;">Not available</td>
 <td style="text-align: left;">The PTP state has not yet been determined.</td>
 </tr>
 <tr class="odd">
