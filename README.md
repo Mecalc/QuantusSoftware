@@ -25,3 +25,7 @@ A simple command-line utility that will upgrade the given device. It can easily 
 
 Examples and libraries also exist to assist developers with their integration efforts.
 Explore these repositories on the [Mecalc GitHub page](https://github.com/orgs/Mecalc/repositories).
+
+## Online User Manual
+
+The latest User Manual is available [here](https://htmlpreview.github.io/?https://github.com/Mecalc/QuantusSoftware/blob/Q2.x.x/QuantusSoftwareManual/QuantusSoftwareManual.html)
