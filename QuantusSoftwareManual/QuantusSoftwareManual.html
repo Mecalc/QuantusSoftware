@@ -139,7 +139,7 @@
 <li><a href="#sample-type">Sample Type</a></li>
 </ul></li>
 <li><a href="#known-issues">Known issues</a></li>
-<li><a href="#supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.2.3</span></a>
+<li><a href="#supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.3.0</span></a>
 <ul>
 <li><a href="#local-storage">Local storage</a></li>
 <li><a href="#supported-hardware">Supported Hardware</a>
@@ -147,6 +147,7 @@
 <li><a href="#controller">Controller</a></li>
 <li><a href="#alo42s4">ALO42S4</a></li>
 <li><a href="#can42s2-microq-built-in-can-fd">CAN42S2, MICRO<strong>Q</strong> built-in CAN FD</a></li>
+<li><a href="#chg42s9">CHG42S9</a></li>
 <li><a href="#chs42x4">CHS42X4</a></li>
 <li><a href="#dchs42s2">DCHS42S2</a></li>
 <li><a href="#icp4211-icp42s11">ICP4211, ICP42S11</a></li>
@@ -227,6 +228,7 @@
 <ul>
 <li><a href="#basic-endpoints">Basic Endpoints</a></li>
 <li><a href="#system-endpoints">System Endpoints</a></li>
+<li><a href="#status-endpoints">Status Endpoints</a></li>
 <li><a href="#streaming-endpoints">Streaming Endpoints</a></li>
 <li><a href="#measurement-configuration-endpoints">Measurement Configuration Endpoints</a></li>
 </ul></li>
@@ -260,6 +262,7 @@
 <li><a href="#ics42l5-1">ICS42L5</a></li>
 <li><a href="#ict426">ICT426</a></li>
 <li><a href="#ict42s6">ICT42S6</a></li>
+<li><a href="#mic42x7-1">MIC42X7</a></li>
 <li><a href="#tac221-1">TAC221</a></li>
 <li><a href="#thm427-1">THM427</a></li>
 <li><a href="#wsb42x2">WSB42X2</a></li>
@@ -315,6 +318,7 @@
 <li><a href="#network-traffic">Network Traffic</a></li>
 <li><a href="#temperature">Temperature</a></li>
 </ul></li>
+<li><a href="#ptp-profile">PTP Profile</a></li>
 <li><a href="#configuring-ptp">Configuring PTP</a>
 <ul>
 <li><a href="#ptp-states">PTP states</a></li>
@@ -333,9 +337,46 @@
 <li><strong>Programming Language Independent</strong>: Almost all programming languages have support for connecting to RESTful Interfaces.</li>
 <li><strong>Accelerated Integration</strong>: Integration time is reduced compared to other types of interfaces.</li>
 </ul>
-<p>The current release of <strong>Quantus</strong>Software is <span class="QSoftwareVersion"><strong>Q</strong> 2.2.3</span>.</p>
+<p>The current release of <strong>Quantus</strong>Software is <span class="QSoftwareVersion"><strong>Q</strong> 2.3.0</span>.</p>
 <h1 id="changelog">Changelog</h1>
-<p><strong>Q2.2.2 to <span class="QSoftwareVersion"><strong>Q</strong> 2.2.3</span></strong></p>
+<p><strong>Q2.2.3 to <span class="QSoftwareVersion"><strong>Q</strong> 2.3.0</span></strong></p>
+<ul>
+<li><strong>Q</strong>Server - Added support for CHG42S9 module.</li>
+<li><strong>Q</strong>Server - Added support to “Mirror a Module” data stream using an ALO42S4.</li>
+<li><strong>Q</strong>Acquire - Updates for an improved user experience:
+<ul>
+<li>Local Storage:
+<ul>
+<li>The Settings section is initially hidden but can be revealed using the show/hide button.</li>
+<li>The recording button will automatically apply system setting and show event notifications.</li>
+<li>The current recording time, disk space and estimated time remaining are now available.</li>
+</ul></li>
+<li>Navigation:
+<ul>
+<li>An enhanced navigation layout has been introduced to facilitate smoother action flow.</li>
+<li>The save and restore are now part of the navigation as import / export.</li>
+</ul></li>
+<li>System settings:
+<ul>
+<li>System settings and the channel sidebar have been merged.</li>
+<li>The system node (QDevice controller) will be the first entry in the sidebar tree, selected by default.</li>
+<li>Settings can be viewed/changed in the properties panel exactly the same as with the channels.</li>
+</ul></li>
+<li>Embedded mode:
+<ul>
+<li>Home, Import, and Export buttons have been removed to align with the context of embedded mode.</li>
+<li>Local Storage settings are always visible and adjusted the layout accordingly.</li>
+<li>The recommended width for <code>/&amp;embedded</code> is 265 pixels and with vertical split <code>/&amp;embedded&amp;verticalSplit</code> is 532 pixels.</li>
+<li><strong>Q</strong>Acquire - The Temp / div settings have been adjusted to the highest level that the hardware can support.</li>
+</ul></li>
+</ul></li>
+<li><strong>Q</strong>Acquire - Implemented automatic range scaling for spectrum graphs.</li>
+<li><strong>Q</strong>DataManager - Added the new logo.</li>
+<li><strong>Q</strong>DataManager - Added Matlab and Wav exporters.</li>
+<li>PQ30 and PQ45 fan controller adjustments - fan speed set to “Maximum” at &gt;= 75degC, will restore user fan setting at &lt;= 70degC. System shuts down at &gt;= 85degC.</li>
+<li>PQ45 fix to correctly display mainframe information in webserver.</li>
+</ul>
+<p><strong>Q2.2.2 to Q2.2.3</strong></p>
 <ul>
 <li>QServer: Fix a bug where CAN modules do not work when PTP is enabled on the PQ45.</li>
 </ul>
@@ -354,6 +395,7 @@
 </ul></li>
 <li>Adjust temperature protection, shutdown at &gt;=86degC for 1 min, immediate shutdown at &gt;=90degC.</li>
 </ul></li>
+<li>Add PQ45 support for SC45 and SC25.</li>
 </ul>
 <p><strong>Q2.2.0 to Q2.2.1</strong></p>
 <ul>
@@ -1302,9 +1344,17 @@ DataStats Stats</td>
 <td>Micro<strong>Q</strong> built-in ICP channels do not work if one of the channels are disabled.</td>
 <td>Either enable or disable both channels</td>
 </tr>
+<tr class="even">
+<td>ALO42S4 Mirror Mode does not support sampling rates lower than 1024.</td>
+<td>Select a higher sampling rate than 1024</td>
+</tr>
+<tr class="odd">
+<td>ALO42S4 Mirror Mode has an invalid scaling when the ICP42S11 is used with a 60 V input range.</td>
+<td>Avoid using the 60 V range on ICP42S11 together with ALO42S6 Mirror Mode.</td>
+</tr>
 </tbody>
 </table>
-<h1 id="supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.2.3</span></h1>
+<h1 id="supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.3.0</span></h1>
 <p><strong>Quantus</strong>Software supports the following features:</p>
 <table style="width:69%;">
 <colgroup>
@@ -1394,58 +1444,62 @@ DataStats Stats</td>
 <td style="text-align: center;">√</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">CHG42S9</td>
+<td style="text-align: center;">√</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">CHS42X4</td>
 <td style="text-align: center;">√</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">DCH42S2</td>
 <td style="text-align: center;">√</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">THM427</td>
 <td style="text-align: center;">√</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">ICS42L5</td>
 <td style="text-align: center;">√</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">MIC42X7</td>
 <td style="text-align: center;">√</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">ICT42S6 Tacho</td>
 <td style="text-align: center;">√</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">ICT42S6 Scope</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">ICT426 Tacho</td>
 <td style="text-align: center;">√</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">ICT426 Scope</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">TAC221 Tacho</td>
 <td style="text-align: center;">√</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">ALO42S4</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">XMC237 CAN FD</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">XMC237 ICP</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">XMC237 GPS</td>
 <td style="text-align: center;">X</td>
 </tr>
@@ -1619,6 +1673,93 @@ DataStats Stats</td>
 </tr>
 <tr class="odd">
 <td>On-board selectable bus termination per channel</td>
+<td style="text-align: center;">√</td>
+<td style="text-align: center;">√</td>
+</tr>
+</tbody>
+</table>
+<h3 id="chg42s9">CHG42S9</h3>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th style="text-align: center;"><strong>Q</strong>Server</th>
+<th style="text-align: center;"><strong>Q</strong>Acquire</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>All modes</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Streaming data</td>
+<td style="text-align: center;">√</td>
+<td style="text-align: center;">√</td>
+</tr>
+<tr class="odd">
+<td>Data level, min and max</td>
+<td style="text-align: center;">√</td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr class="even">
+<td>Autozero</td>
+<td style="text-align: center;">√</td>
+<td style="text-align: center;">√</td>
+</tr>
+<tr class="odd">
+<td>Integrity monitoring</td>
+<td style="text-align: center;">√</td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr class="even">
+<td>Overload monitoring</td>
+<td style="text-align: center;">√</td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr class="odd">
+<td>Level monitoring</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr class="even">
+<td>TEDS</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr class="odd">
+<td>Change sample rate</td>
+<td style="text-align: center;">√</td>
+<td style="text-align: center;">√</td>
+</tr>
+<tr class="even">
+<td>Ranges</td>
+<td style="text-align: center;">√</td>
+<td style="text-align: center;">√</td>
+</tr>
+<tr class="odd">
+<td>Grounding</td>
+<td style="text-align: center;">√</td>
+<td style="text-align: center;">√</td>
+</tr>
+<tr class="even">
+<td><strong>Charge mode</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>Charge sensitivity</td>
+<td style="text-align: center;">√</td>
+<td style="text-align: center;">√</td>
+</tr>
+<tr class="even">
+<td>Charge shield grounding</td>
 <td style="text-align: center;">√</td>
 <td style="text-align: center;">√</td>
 </tr>
@@ -3221,7 +3362,7 @@ FailedToOpenFile = -9</code></pre>
 <td style="text-align: left;">This channel does not support test signals</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">12</td>
+<td style="text-align: center;">13</td>
 <td style="text-align: center;">400</td>
 <td style="text-align: left;">This channel does not support TEDS</td>
 </tr>
@@ -3364,6 +3505,31 @@ FailedToOpenFile = -9</code></pre>
 <td></td>
 <td>New system time</td>
 <td>Sets the system time to the year, month, day, hour, minutes and seconds specified in the body.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="status-endpoints">Status Endpoints</h3>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 7%" />
+<col style="width: 5%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Endpoint</th>
+<th>Method</th>
+<th>Port</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>/SystemStatus</td>
+<td>GET</td>
+<td>80</td>
+<td>Accessible on port 80 while <strong>Quantus</strong>Software is initialising and calibrating. Returns the boot percentage, system state and application state.</td>
 </tr>
 </tbody>
 </table>
@@ -3620,74 +3786,78 @@ FailedToOpenFile = -9</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;">CHG42S9</td>
+<td style="text-align: center;">146</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">DCH42S2</td>
 <td style="text-align: center;">149</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">ALO42S4</td>
 <td style="text-align: center;">151</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">CAN42S2</td>
 <td style="text-align: center;">157</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">THM427</td>
 <td style="text-align: center;">170</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">MIC42X7</td>
 <td style="text-align: center;">180</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">ICS42L5</td>
 <td style="text-align: center;">182</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">CHS42X4</td>
 <td style="text-align: center;">184</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">ICP4211</td>
 <td style="text-align: center;">211</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">ICS421</td>
 <td style="text-align: center;">213</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">ICS425</td>
 <td style="text-align: center;">217</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">ICT426</td>
 <td style="text-align: center;">218</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">TAC221</td>
 <td style="text-align: center;">222</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">WSB42X2</td>
 <td style="text-align: center;">227</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Empty</td>
 <td style="text-align: center;">240</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Unsupported</td>
 <td style="text-align: center;">253</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">XMC237</td>
 <td style="text-align: center;">20005</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">ICP42S11</td>
 <td style="text-align: center;">65747</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">ICT42S6</td>
 <td style="text-align: center;">65754</td>
 </tr>
@@ -3791,6 +3961,10 @@ FailedToOpenFile = -9</code></pre>
 <td style="text-align: center;">47</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">CHG42S9</td>
+<td style="text-align: center;">54</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Unsupported</td>
 <td style="text-align: center;">253</td>
 </tr>
@@ -3917,7 +4091,9 @@ System Only</td>
 </li>
 <li>Drive signals for acoustic testing<br />
 </li>
-<li>Arbitrary analog signals to feed into other circuits requiring ±10 V static or dynamic signals</li>
+<li>Arbitrary analog signals to feed into other circuits requiring ±10 V static or dynamic signals<br />
+</li>
+<li>Output the sampled data stream from a Module installed to the left.</li>
 </ul>
 <h6 id="operation-mode-1">Operation Mode</h6>
 <p>Gets or sets the Module operation mode. The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
@@ -3932,13 +4108,50 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Disabled<br/>Enabled</td>
+<td>Disabled<br/>Enabled<br/>Mirror Left Module</td>
 <td>Enabled</td>
 </tr>
 </tbody>
 </table>
 <h6 id="enabled-settings-1">Enabled Settings</h6>
 <p>This operation mode will set the Module in a “powered on” state. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 60%" />
+<col style="width: 21%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Description</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Grounding</td>
+<td>Gets or sets the grounding isolation switch on the Module.</td>
+<td>Floating<br/>Grounded</td>
+<td>Floating</td>
+</tr>
+</tbody>
+</table>
+<h6 id="mirror-left-module-settings">Mirror Left Module Settings</h6>
+<p>This operation mode will set the Module in a “powered on” state and stream the sampled data of the Module to the left. Some restrictions do apply:</p>
+<ul>
+<li>The ALO42S4 should be installed in either SC slot 2 or 4<br />
+</li>
+<li>It can only stream data from the Module directly to its left<br />
+</li>
+<li>All 4 channels will be Enabled and cannot be Disabled<br />
+</li>
+<li>No settings or Operation Mode can be set to the channels</li>
+</ul>
+<p>The channel mapping will recursively assign the data stream from first Enabled channel of the Module to the left, to the first available channel on the ALO42S4. Disabled channels are not assigned and skipped over.<br />
+The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
 <col style="width: 9%" />
@@ -3972,9 +4185,9 @@ System Only</td>
 <p>Gets or sets the channel operation mode. The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <colgroup>
-<col style="width: 8%" />
-<col style="width: 80%" />
-<col style="width: 10%" />
+<col style="width: 7%" />
+<col style="width: 83%" />
+<col style="width: 9%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -3986,7 +4199,7 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Disabled<br/>DC Generator<br/>Sine Wave Generator<br/>Square Wave Generator<br/>Triangular Wave Generator<br/>White Noise Generator</td>
+<td>Disabled<br/>DC Generator<br/>Sine Wave Generator<br/>Square Wave Generator<br/>Triangular Wave Generator<br/>White Noise Generator<br/>Mirror Left Module</td>
 <td>DC Generator</td>
 </tr>
 </tbody>
@@ -4295,8 +4508,137 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h4 id="chs42x4-1">CHS42X4</h4>
+<h6 id="mirror-left-module-settings-1">Mirror Left Module Settings</h6>
+<p>This operation mode will configure the signal generator to stream the sampled data from the Module to the left. The data samples are scaled to half of the 10 Vpp full scale output. As an example: for a 10 V input range the mirrored signal will be scaled to 5 V on the ALO42S4 channel, 100 mV input range will also be scaled to 5 V. This allows the ALO42S4 to generate signal which matches the full dynamic range of the sampling channel.<br />
+There are no settings available. #### CHG42S9</p>
 <h5 id="module-item-description-1">Module Item Description</h5>
+<p>The CHG42S9 Module has 4 independent input channels for Quartz or Piezoelectric Ceramic sensors.<br />
+These sensors are typically used when improved signal performance such as low noise and low distortion<br />
+is required or where high temperature or nuclear radiation prevents the use of ICP® based sensors.<br />
+Various grounding options allow for low noise measurements regardless of external grounding constraints.<br />
+The Module can be used with:<br />
+* Piezoelectric sensors commonly used to measure vibration, acceleration, force, torque and pressure</p>
+<h6 id="operation-mode-3">Operation Mode</h6>
+<p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Operation Mode</td>
+<td>Disabled<br/>Enabled</td>
+<td>Enabled</td>
+</tr>
+</tbody>
+</table>
+<h6 id="enabled-settings-2">Enabled Settings</h6>
+<p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
+<table>
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 20%" />
+<col style="width: 68%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Description</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sample Rate</td>
+<td>Gets or sets this Module’s channels’ effective sample rate as a division of master sample rate.</td>
+<td>MSR Divide by 1<br/>MSR Divide by 2<br/>MSR Divide by 4<br/>MSR Divide by 8<br/>MSR Divide by 16<br/>MSR Divide by 32<br/>MSR Divide by 64<br/>MSR Divide by 128<br/>MSR Divide by 256</td>
+<td>MSR Divide by 256</td>
+</tr>
+<tr class="even">
+<td>Grounding</td>
+<td>Gets or sets the grounding isolation switch on the Module.</td>
+<td>Floating<br/>Grounded</td>
+<td>Floating</td>
+</tr>
+</tbody>
+</table>
+<h5 id="channel-item-description-1">Channel Item Description</h5>
+<p>Each channel operates independently from one another. Some restrictions do apply:</p>
+<ul>
+<li>All channels have the same sample rate.<br />
+</li>
+<li>Module Grounding configuration affects all channels.</li>
+</ul>
+<h6 id="operation-mode-4">Operation Mode</h6>
+<p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Operation Mode</td>
+<td>Disabled<br/>Charge Input</td>
+<td>Charge Input</td>
+</tr>
+</tbody>
+</table>
+<h6 id="charge-input-settings">Charge Input Settings</h6>
+<p>This operation mode is often used with piezoelectric sensors to measure vibration, acceleration, force, torque and pressure.The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 49%" />
+<col style="width: 24%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Description</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Voltage Range</td>
+<td>Gets or sets the channel’s input voltage range.</td>
+<td>100 mV<br/>1 V<br/>10 V</td>
+<td>10 V</td>
+</tr>
+<tr class="even">
+<td>Charge Sensitivity</td>
+<td>Gets or sets the channel’s input charge pre-amplifier sensitivity range.</td>
+<td>100 µV/pC<br/>1 mV/pC<br/>10 mV/pC</td>
+<td>1 mV/pC</td>
+</tr>
+<tr class="odd">
+<td>Cable Shield Grounding</td>
+<td>Gets or sets the channel’s grounding connection of the negative signal line to the Module ground.</td>
+<td>Floating<br/>Grounded</td>
+<td>Floating</td>
+</tr>
+<tr class="even">
+<td>Input Coupling</td>
+<td>Gets or sets the channel’s highpass filters or hardware coupling.</td>
+<td>No Filter<br/>1 Hz Filter</td>
+<td>1 Hz Filter</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chs42x4-1">CHS42X4</h4>
+<h5 id="module-item-description-2">Module Item Description</h5>
 <p>The CHS42X4 Module can be used with ICP® based accelerometers, force and pressure sensors, quartz or piezoelectric ceramic sensors or to measure analog voltages.</p>
 <p>The Module can be used with:</p>
 <ul>
@@ -4306,7 +4648,7 @@ System Only</td>
 </li>
 <li>With any voltage source up to ±10 V in voltage input mode</li>
 </ul>
-<h6 id="operation-mode-3">Operation Mode</h6>
+<h6 id="operation-mode-5">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -4324,7 +4666,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-2">Enabled Settings</h6>
+<h6 id="enabled-settings-3">Enabled Settings</h6>
 <p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -4436,7 +4778,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-1">Channel Item Description</h5>
+<h5 id="channel-item-description-2">Channel Item Description</h5>
 <p>Each channel operates independently from one another. Some restrictions do apply:</p>
 <ul>
 <li>All channels have the same sample rate.<br />
@@ -4445,7 +4787,7 @@ System Only</td>
 </li>
 <li>Channel 1, 2 and 3 are limited to the same operation mode, as well a channel 4, 5 and 6.</li>
 </ul>
-<h6 id="operation-mode-4">Operation Mode</h6>
+<h6 id="operation-mode-6">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <colgroup>
@@ -4550,7 +4892,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="charge-input-settings">Charge Input Settings</h6>
+<h6 id="charge-input-settings-1">Charge Input Settings</h6>
 <p>This operation mode is often used with piezoelectric sensors to measure vibration, acceleration, force, torque and pressure.The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table style="width:100%;">
 <colgroup>
@@ -4595,11 +4937,11 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="dch42s2">DCH42S2</h4>
-<h5 id="module-item-description-2">Module Item Description</h5>
+<h5 id="module-item-description-3">Module Item Description</h5>
 <p>The DCH42S2 Module has 2 independent input channels for Quartz or Piezoelectric Ceramic sensors. These sensors are typically used when improved signal performance such as low noise and low distortion is required or where high temperature or nuclear radiation prevents the use of ICP® based sensors. Differential piezoelectric output sensors have all the advantages of single ended piezoelectric output sensors with the additional advantages of improved electromagnetic immunity, ground isolation and double the sensitivity.</p>
 <p>The Module can be used:<br />
 • With differential and single ended piezoelectric sensors commonly used to measure vibration, acceleration, force, torque and pressure.</p>
-<h6 id="operation-mode-5">Operation Mode</h6>
+<h6 id="operation-mode-7">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -4617,7 +4959,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-3">Enabled Settings</h6>
+<h6 id="enabled-settings-4">Enabled Settings</h6>
 <p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -4649,14 +4991,14 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-2">Channel Item Description</h5>
+<h5 id="channel-item-description-3">Channel Item Description</h5>
 <p>Each channel operates independently from one another. Some restrictions do apply:</p>
 <ul>
 <li>All channels have the same sample rate.<br />
 </li>
 <li>Grounding configuration on the Module node affects all channels.</li>
 </ul>
-<h6 id="operation-mode-6">Operation Mode</h6>
+<h6 id="operation-mode-8">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <colgroup>
@@ -4768,7 +5110,7 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="icp4211">ICP4211</h4>
-<h5 id="module-item-description-3">Module Item Description</h5>
+<h5 id="module-item-description-4">Module Item Description</h5>
 <p>The ICP4211 Module can be used with ICP® based accelerometers, force and pressure sensors as well as to measure analog voltages. All four channels operate independently of each other, each with their own setting of mode, gain and coupling.</p>
 <p>The Module can be used with:</p>
 <ul>
@@ -4776,7 +5118,7 @@ System Only</td>
 </li>
 <li>Any voltage source up to ±10 V in voltage input mode.</li>
 </ul>
-<h6 id="operation-mode-7">Operation Mode</h6>
+<h6 id="operation-mode-9">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -4794,7 +5136,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-4">Enabled Settings</h6>
+<h6 id="enabled-settings-5">Enabled Settings</h6>
 <p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -4826,14 +5168,14 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-3">Channel Item Description</h5>
+<h5 id="channel-item-description-4">Channel Item Description</h5>
 <p>Each channel operates independently from one another. Some restrictions do apply:</p>
 <ul>
 <li>All channels have the same sample rate.<br />
 </li>
 <li>Grounding configuration on the Module node affects all channels.</li>
 </ul>
-<h6 id="operation-mode-8">Operation Mode</h6>
+<h6 id="operation-mode-10">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -4934,7 +5276,7 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="icp42s11">ICP42S11</h4>
-<h5 id="module-item-description-4">Module Item Description</h5>
+<h5 id="module-item-description-5">Module Item Description</h5>
 <p>The ICP42S11 Module can be used with ICP® based accelerometers, force and pressure sensors as well as to measure analog voltages. All four channels operate independently of each other, each with their own setting of mode, gain and coupling.</p>
 <p>The Module can be used with:</p>
 <ul>
@@ -4942,7 +5284,7 @@ System Only</td>
 </li>
 <li>Any voltage source up to ±60 V in voltage input mode.</li>
 </ul>
-<h6 id="operation-mode-9">Operation Mode</h6>
+<h6 id="operation-mode-11">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -4960,7 +5302,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-5">Enabled Settings</h6>
+<h6 id="enabled-settings-6">Enabled Settings</h6>
 <p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -4992,14 +5334,14 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-4">Channel Item Description</h5>
+<h5 id="channel-item-description-5">Channel Item Description</h5>
 <p>Each channel operates independently from one another. Some restrictions do apply:</p>
 <ul>
 <li>All channels have the same sample rate.<br />
 </li>
 <li>Grounding configuration on the Module node affects all channels.</li>
 </ul>
-<h6 id="operation-mode-10">Operation Mode</h6>
+<h6 id="operation-mode-12">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -5100,7 +5442,7 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="ics421">ICS421</h4>
-<h5 id="module-item-description-5">Module Item Description</h5>
+<h5 id="module-item-description-6">Module Item Description</h5>
 <p>The ICS421 Module can be used with ICP® based accelerometers, force and pressure sensors as well as to measure analog voltages. All six channels operate independently of each other, each with their own setting of mode, gain and coupling.</p>
 <p>The Module can be used:</p>
 <ul>
@@ -5108,7 +5450,7 @@ System Only</td>
 </li>
 <li>With any voltage source up to ±10 V in voltage input mode</li>
 </ul>
-<h6 id="operation-mode-11">Operation Mode</h6>
+<h6 id="operation-mode-13">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -5126,7 +5468,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-6">Enabled Settings</h6>
+<h6 id="enabled-settings-7">Enabled Settings</h6>
 <p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -5214,14 +5556,14 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-5">Channel Item Description</h5>
+<h5 id="channel-item-description-6">Channel Item Description</h5>
 <p>Each channel operates independently from one another. Some restrictions do apply:</p>
 <ul>
 <li>All channels have the same sample rate.<br />
 </li>
 <li>Grounding configuration on the Module affects all channels.</li>
 </ul>
-<h6 id="operation-mode-12">Operation Mode</h6>
+<h6 id="operation-mode-14">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -5322,7 +5664,7 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="ics425">ICS425</h4>
-<h5 id="module-item-description-6">Module Item Description</h5>
+<h5 id="module-item-description-7">Module Item Description</h5>
 <p>The ICS425 Module can be used with ICP® based accelerometers, force and pressure sensors as well as to measure analog voltages. All six channels operate independently of each other, each with their own setting of mode, gain and coupling.</p>
 <p>The Module can be used:</p>
 <ul>
@@ -5330,7 +5672,7 @@ System Only</td>
 </li>
 <li>With any voltage source up to ±10 V in voltage input mode</li>
 </ul>
-<h6 id="operation-mode-13">Operation Mode</h6>
+<h6 id="operation-mode-15">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -5348,7 +5690,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-7">Enabled Settings</h6>
+<h6 id="enabled-settings-8">Enabled Settings</h6>
 <p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -5436,14 +5778,14 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-6">Channel Item Description</h5>
+<h5 id="channel-item-description-7">Channel Item Description</h5>
 <p>Each channel operates independently from one another. Some restrictions do apply:</p>
 <ul>
 <li>All channels have the same sample rate.<br />
 </li>
 <li>Grounding configuration affects all channels.</li>
 </ul>
-<h6 id="operation-mode-14">Operation Mode</h6>
+<h6 id="operation-mode-16">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -5544,13 +5886,13 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="ics42l5-1">ICS42L5</h4>
-<h5 id="module-item-description-7">Module Item Description</h5>
+<h5 id="module-item-description-8">Module Item Description</h5>
 <p>The ICS42L5 Module can be used to measure analog voltages. All six channels operate independently of each other, each with their own setting of mode, gain and coupling.</p>
 <p>The Module can be used:</p>
 <ul>
 <li>With any voltage source up to ±10 V in voltage input mode</li>
 </ul>
-<h6 id="operation-mode-15">Operation Mode</h6>
+<h6 id="operation-mode-17">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -5568,7 +5910,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-8">Enabled Settings</h6>
+<h6 id="enabled-settings-9">Enabled Settings</h6>
 <p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table style="width:100%;">
 <colgroup>
@@ -5600,14 +5942,14 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-7">Channel Item Description</h5>
+<h5 id="channel-item-description-8">Channel Item Description</h5>
 <p>Each channel operates independently from one another. Some restrictions do apply:</p>
 <ul>
 <li>All channels have the same sample rate.<br />
 </li>
 <li>Grounding configuration affects all channels.</li>
 </ul>
-<h6 id="operation-mode-16">Operation Mode</h6>
+<h6 id="operation-mode-18">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -5664,7 +6006,7 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="ict426">ICT426</h4>
-<h5 id="module-item-description-8">Module Item Description</h5>
+<h5 id="module-item-description-9">Module Item Description</h5>
 <p>The ICT426 Module is a hybrid Module which combines two channels from the ICP4211 Module with two Tacho input channels.The Tacho channels provide Tacho period measurements with a 20 ns resolution, sampled where the signal intersects its trigger level settings. Triggering of Tacho signals can be set for rising or falling edges with adjustable hysteresis whilst additionally providing AC coupling for sensors with varying DC voltage offsets. A 204.8 kSa/s scope mode is provided to view the Tacho signals in order to assist with the definition of trigger levels.</p>
 <p>The Module can be used:</p>
 <ul>
@@ -5674,7 +6016,7 @@ System Only</td>
 </li>
 <li>With any voltage source up to ±10 V in voltage input mode</li>
 </ul>
-<h6 id="operation-mode-17">Operation Mode</h6>
+<h6 id="operation-mode-19">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -5687,12 +6029,12 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Enabled<br/>Disabled</td>
+<td>Disabled<br/>Enabled</td>
 <td>Enabled</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-9">Enabled Settings</h6>
+<h6 id="enabled-settings-10">Enabled Settings</h6>
 <p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -5713,7 +6055,7 @@ System Only</td>
 <tr class="odd">
 <td>ICP Channel Sample Rate</td>
 <td>Gets or sets this Module’s ICP® channels’ effective sample rate as a division of master sample rate.</td>
-<td>MSR Divide by 256<br/>MSR Divide by 2<br/>MSR Divide by 4<br/>MSR Divide by 8<br/>MSR Divide by 16<br/>MSR Divide by 32<br/>MSR Divide by 64<br/>MSR Divide by 128</td>
+<td>MSR Divide by 2<br/>MSR Divide by 4<br/>MSR Divide by 8<br/>MSR Divide by 16<br/>MSR Divide by 32<br/>MSR Divide by 64<br/>MSR Divide by 128<br/>MSR Divide by 256</td>
 <td>MSR Divide by 256</td>
 </tr>
 <tr class="even">
@@ -5725,7 +6067,7 @@ System Only</td>
 <tr class="odd">
 <td>Tacho Channel Input Biasing</td>
 <td>Gets or sets the Tacho channel’s type of input biasing.</td>
-<td>Single Ended<br/>Differential</td>
+<td>Differential<br/>Single Ended</td>
 <td>Single Ended</td>
 </tr>
 </tbody>
@@ -5737,7 +6079,7 @@ System Only</td>
 </li>
 <li>Grounding configuration on the Module node affects all channels.</li>
 </ul>
-<h6 id="operation-mode-18">Operation Mode</h6>
+<h6 id="operation-mode-20">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -5750,7 +6092,7 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Voltage Input<br/>Disabled<br/>ICP® Input</td>
+<td>Disabled<br/>Voltage Input<br/>ICP® Input</td>
 <td>Voltage Input</td>
 </tr>
 </tbody>
@@ -5776,7 +6118,7 @@ System Only</td>
 <tr class="odd">
 <td>Voltage Range</td>
 <td>Gets or sets the channel’s input voltage range.</td>
-<td>10 V<br/>100 mV<br/>1 V</td>
+<td>100 mV<br/>1 V<br/>10 V</td>
 <td>10 V</td>
 </tr>
 <tr class="even">
@@ -5814,7 +6156,7 @@ System Only</td>
 <tr class="odd">
 <td>Voltage Range</td>
 <td>Gets or sets the channel’s input voltage range.</td>
-<td>10 V<br/>100 mV<br/>1 V</td>
+<td>100 mV<br/>1 V<br/>10 V</td>
 <td>10 V</td>
 </tr>
 <tr class="even">
@@ -5826,7 +6168,7 @@ System Only</td>
 <tr class="odd">
 <td>Coupling</td>
 <td>Gets or sets the channel’s highpass filters or hardware coupling.</td>
-<td>AC with 1 Hz Filter<br/>AC</td>
+<td>AC<br/>AC with 1 Hz Filter</td>
 <td>AC with 1 Hz Filter</td>
 </tr>
 <tr class="even">
@@ -5842,7 +6184,7 @@ System Only</td>
 <ul>
 <li>The biasing configuration on the Module node affects all channels.</li>
 </ul>
-<h6 id="operation-mode-19">Operation Mode</h6>
+<h6 id="operation-mode-21">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -5855,12 +6197,12 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Enabled<br/>Disabled</td>
+<td>Disabled<br/>Enabled</td>
 <td>Enabled</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-10">Enabled Settings</h6>
+<h6 id="enabled-settings-11">Enabled Settings</h6>
 <p>This operation mode will enable the Tacho channels for data collection. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -5881,13 +6223,13 @@ System Only</td>
 <tr class="odd">
 <td>Voltage Range</td>
 <td>Gets or sets the channel’s input voltage range.</td>
-<td>30 V<br/>2 V<br/>12 V<br/>60 V</td>
+<td>2 V<br/>12 V<br/>30 V<br/>60 V</td>
 <td>30 V</td>
 </tr>
 <tr class="even">
 <td>Coupling</td>
 <td>Gets or sets the channel’s highpass filters or hardware coupling.</td>
-<td>AC<br/>DC</td>
+<td>DC<br/>AC</td>
 <td>AC</td>
 </tr>
 <tr class="odd">
@@ -5927,7 +6269,7 @@ System Only</td>
 <ul>
 <li>The corresponding Tacho channel needs to be enabled for scope data to work.</li>
 </ul>
-<h6 id="operation-mode-20">Operation Mode</h6>
+<h6 id="operation-mode-22">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -5940,12 +6282,12 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Enabled<br/>Disabled</td>
+<td>Disabled<br/>Enabled</td>
 <td>Enabled</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-11">Enabled Settings</h6>
+<h6 id="enabled-settings-12">Enabled Settings</h6>
 <p>This operation mode will enable the scope data stream. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -5966,7 +6308,7 @@ System Only</td>
 <tr class="odd">
 <td>Sample Rate</td>
 <td>Gets or sets the active sample rate for this scope data stream.</td>
-<td>MSR Multiplied by 0.5<br/>MSR Multiplied by 1<br/>MSR Multiplied by 0.25<br/>MSR Multiplied by 0.125<br/>MSR Multiplied by 0.0625<br/>MSR Multiplied by 0.03125<br/>MSR Multiplied by 0.015625</td>
+<td>MSR Multiplied by 1<br/>MSR Multiplied by 0.5<br/>MSR Multiplied by 0.25<br/>MSR Multiplied by 0.125<br/>MSR Multiplied by 0.0625<br/>MSR Multiplied by 0.03125<br/>MSR Multiplied by 0.015625</td>
 <td>MSR Multiplied by 0.5</td>
 </tr>
 <tr class="even">
@@ -5984,7 +6326,7 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="ict42s6">ICT42S6</h4>
-<h5 id="module-item-description-9">Module Item Description</h5>
+<h5 id="module-item-description-10">Module Item Description</h5>
 <p>The ICT42S6 Module is a hybrid Module which combines two channels from the ICP42S11 Module with two Tacho input channels.The Tacho channels provide Tacho period measurements with a 20 ns resolution, sampled where the signal intersects its trigger level settings. Triggering of Tacho signals can be set for rising or falling edges with adjustable hysteresis whilst additionally providing AC coupling for sensors with varying DC voltage offsets. A 4.9 MSa/s scope mode is provided to view the Tacho signals in order to assist with the definition of trigger levels.</p>
 <p>The Module can be used:</p>
 <ul>
@@ -5994,7 +6336,7 @@ System Only</td>
 </li>
 <li>With any voltage source up to ±10 V in voltage input mode</li>
 </ul>
-<h6 id="operation-mode-21">Operation Mode</h6>
+<h6 id="operation-mode-23">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -6012,7 +6354,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-12">Enabled Settings</h6>
+<h6 id="enabled-settings-13">Enabled Settings</h6>
 <p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -6057,7 +6399,7 @@ System Only</td>
 </li>
 <li>Grounding configuration on the Module node affects all channels.</li>
 </ul>
-<h6 id="operation-mode-22">Operation Mode</h6>
+<h6 id="operation-mode-24">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -6162,7 +6504,7 @@ System Only</td>
 <ul>
 <li>The biasing configuration on the Module node affects all channels.</li>
 </ul>
-<h6 id="operation-mode-23">Operation Mode</h6>
+<h6 id="operation-mode-25">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -6175,12 +6517,12 @@ System Only</td>
 <tbody>
 <tr class="odd">
 <td>Operation Mode</td>
-<td>Disabled<br/>Enabled</td>
+<td>Enabled<br/>Disabled</td>
 <td>Enabled</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-13">Enabled Settings</h6>
+<h6 id="enabled-settings-14">Enabled Settings</h6>
 <p>This operation mode will enable the Tacho channels for data collection. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -6201,13 +6543,13 @@ System Only</td>
 <tr class="odd">
 <td>Voltage Range</td>
 <td>Gets or sets the channel’s input voltage range.</td>
-<td>2 V<br/>12 V<br/>30 V<br/>60 V</td>
+<td>30 V<br/>2 V<br/>12 V<br/>60 V</td>
 <td>30 V</td>
 </tr>
 <tr class="even">
 <td>Coupling</td>
 <td>Gets or sets the channel’s highpass filters or hardware coupling.</td>
-<td>DC<br/>AC</td>
+<td>AC<br/>DC</td>
 <td>AC</td>
 </tr>
 <tr class="odd">
@@ -6247,7 +6589,7 @@ System Only</td>
 <ul>
 <li>The corresponding Tacho channel needs to be enabled for scope data to work.</li>
 </ul>
-<h6 id="operation-mode-24">Operation Mode</h6>
+<h6 id="operation-mode-26">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -6265,7 +6607,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-14">Enabled Settings</h6>
+<h6 id="enabled-settings-15">Enabled Settings</h6>
 <p>This operation mode will enable the scope data stream. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -6303,14 +6645,267 @@ System Only</td>
 </tr>
 </tbody>
 </table>
+<h4 id="mic42x7-1">MIC42X7</h4>
+<h5 id="module-item-description-11">Module Item Description</h5>
+<p>The MIC42X7 Module can be used with externally-polarized microphones, ICP® based accelerometers, force and pressure sensors as well as to measure analog voltages. Both channels operate independently of each other, each with their own setting of mode, gain and coupling.</p>
+<p>The Module can be used:</p>
+<ul>
+<li>With externally-polarized microphones often referred to as /“LEMO/” type microphones<br />
+</li>
+<li>With any ICP® based sensor commonly used to measure sound, vibration, acceleration, force or pressure<br />
+</li>
+<li>With any voltage source up to ±10 V in voltage input mode</li>
+</ul>
+<h6 id="operation-mode-27">Operation Mode</h6>
+<p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Operation Mode</td>
+<td>Enabled<br/>Disabled</td>
+<td>Enabled</td>
+</tr>
+</tbody>
+</table>
+<h6 id="enabled-settings-16">Enabled Settings</h6>
+<p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 19%" />
+<col style="width: 65%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Description</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sample Rate</td>
+<td>Gets or sets this Module’s channels’ effective sample rate as a division of master sample rate.</td>
+<td>MSR Divide by 256<br/>MSR Divide by 1<br/>MSR Divide by 2<br/>MSR Divide by 4<br/>MSR Divide by 8<br/>MSR Divide by 16<br/>MSR Divide by 32<br/>MSR Divide by 64<br/>MSR Divide by 128</td>
+<td>MSR Divide by 256</td>
+</tr>
+<tr class="even">
+<td>Grounding</td>
+<td>Gets or sets the grounding isolation switch on the Module.</td>
+<td>Floating<br/>Grounded</td>
+<td>Floating</td>
+</tr>
+<tr class="odd">
+<td>200 V Polarization Voltage</td>
+<td>Gets or sets both channel’s polarization voltage output.</td>
+<td>Disabled<br/>Enabled</td>
+<td>Disabled</td>
+</tr>
+<tr class="even">
+<td>Calibration Signal Amplitude</td>
+<td>Gets or sets both channel’s Microphone Calibration Signal voltage level.</td>
+<td>0 &lt; value &lt; 10</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Calibration Signal Frequency</td>
+<td>Gets or sets both channel’s Microphone Calibration Signal frequency level.</td>
+<td>0 &lt; value &lt; 10000</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h5 id="channel-item-description-9">Channel Item Description</h5>
+<p>Each channel operates independently from one another. Some restrictions do apply:</p>
+<ul>
+<li>All channels have the same sample rate.<br />
+</li>
+<li>Grounding configuration affects all channels.</li>
+</ul>
+<h6 id="operation-mode-28">Operation Mode</h6>
+<p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 65%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Operation Mode</td>
+<td>Voltage Input<br/>Disabled<br/>ICP® Input<br/>Microphone Input</td>
+<td>Voltage Input</td>
+</tr>
+</tbody>
+</table>
+<h6 id="voltage-input-settings-8">Voltage Input Settings</h6>
+<p>This operation mode is often used when measuring voltage sources without the use of sensors. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 46%" />
+<col style="width: 27%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Description</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Voltage Range</td>
+<td>Gets or sets the channel’s input voltage range.</td>
+<td>12 V<br/>120 mV<br/>1.2 V</td>
+<td>12 V</td>
+</tr>
+<tr class="even">
+<td>Input Biasing</td>
+<td>Gets or sets the channel’s type of input biasing.</td>
+<td>Differential<br/>Single Ended</td>
+<td>Differential</td>
+</tr>
+<tr class="odd">
+<td>Coupling</td>
+<td>Gets or sets the channel’s highpass filters or hardware coupling.</td>
+<td>DC<br/>AC<br/>AC With 1 Hz Filter</td>
+<td>DC</td>
+</tr>
+<tr class="even">
+<td>Cable Shield Grounding</td>
+<td>Gets or sets the channel’s cable shield ground relay to connect or disconnect the cable shield from the chassis.</td>
+<td>Connected To Chassis<br/>Floating From Chassis</td>
+<td>Connected To Chassis</td>
+</tr>
+</tbody>
+</table>
+<h6 id="icp-input-settings-7">ICP® Input Settings</h6>
+<p>This operation mode is often used when measuring ICP® based microphones, accelerometers, force and pressure sensors. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 45%" />
+<col style="width: 26%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Description</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Voltage Range</td>
+<td>Gets or sets the channel’s input voltage range.</td>
+<td>12 V<br/>120 mV<br/>1.2 V</td>
+<td>12 V</td>
+</tr>
+<tr class="even">
+<td>Input Biasing</td>
+<td>Gets or sets the channel’s type of input biasing.</td>
+<td>Single Ended</td>
+<td>Single Ended</td>
+</tr>
+<tr class="odd">
+<td>Coupling</td>
+<td>Gets or sets the channel’s highpass filters or hardware coupling.</td>
+<td>AC With 1 Hz Filter<br/>AC</td>
+<td>AC With 1 Hz Filter</td>
+</tr>
+<tr class="even">
+<td>Current Source</td>
+<td>Gets or sets the channel’s current source configuration.</td>
+<td>4 mA<br/>8 mA<br/>12 mA</td>
+<td>4 mA</td>
+</tr>
+<tr class="odd">
+<td>Cable Shield Grounding</td>
+<td>Gets or sets the channel’s cable shield ground relay to connect or disconnect the cable shield from the chassis.</td>
+<td>Connected To Chassis<br/>Floating From Chassis</td>
+<td>Connected To Chassis</td>
+</tr>
+</tbody>
+</table>
+<h6 id="microphone-input-settings">Microphone Input Settings</h6>
+<p>This operation mode is often used when measuring externally polarized microphones, often referred to as LEMO type microphones. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 45%" />
+<col style="width: 26%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Description</th>
+<th>Options</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Voltage Range</td>
+<td>Gets or sets the channel’s input voltage range.</td>
+<td>12 V<br/>120 mV<br/>1.2 V</td>
+<td>12 V</td>
+</tr>
+<tr class="even">
+<td>Input Biasing</td>
+<td>Gets or sets the channel’s type of input biasing.</td>
+<td>Differential<br/>Single Ended</td>
+<td>Differential</td>
+</tr>
+<tr class="odd">
+<td>Coupling</td>
+<td>Gets or sets the channel’s highpass filters or hardware coupling.</td>
+<td>AC With 1 Hz Filter<br/>DC<br/>AC</td>
+<td>AC With 1 Hz Filter</td>
+</tr>
+<tr class="even">
+<td>Preamp Excitation</td>
+<td>Gets or sets the channel’s pre-amplifier excitation voltage.</td>
+<td>Enabled</td>
+<td>Enabled</td>
+</tr>
+<tr class="odd">
+<td>Cable Shield Grounding</td>
+<td>Gets or sets the channel’s cable shield ground relay to connect or disconnect the cable shield from the chassis.</td>
+<td>Connected To Chassis<br/>Floating From Chassis</td>
+<td>Connected To Chassis</td>
+</tr>
+</tbody>
+</table>
 <h4 id="tac221-1">TAC221</h4>
-<h5 id="module-item-description-10">Module Item Description</h5>
+<h5 id="module-item-description-12">Module Item Description</h5>
 <p>The TAC221 Module is an advanced two Tacho input channel Module. The Tacho channels provide Tacho period measurements with a 20 ns resolution, sampled where the signal intersects its trigger level settings. Triggering of Tacho signals can be set for rising or falling edges with adjustable hysteresis whilst additionally providing AC coupling for sensors with varying DC voltage offsets. A high speed 6.5 MSa/s scope mode is provided to view the Tacho signals in order to assist with the definition of trigger levels.</p>
 <p>The Module can be used:</p>
 <ul>
 <li>When measuring the pulse rate and time between pulses such as rpm and crank angle</li>
 </ul>
-<h6 id="operation-mode-25">Operation Mode</h6>
+<h6 id="operation-mode-29">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -6330,7 +6925,7 @@ System Only</td>
 </table>
 <h5 id="tacho-channel-item-description-2">Tacho Channel Item Description</h5>
 <p>Each channel operates independently from one another.</p>
-<h6 id="operation-mode-26">Operation Mode</h6>
+<h6 id="operation-mode-30">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -6348,7 +6943,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-15">Enabled Settings</h6>
+<h6 id="enabled-settings-17">Enabled Settings</h6>
 <p>This operation mode will enable the Tacho channels for data collection. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -6415,7 +7010,7 @@ System Only</td>
 <ul>
 <li>The corresponding Tacho channel needs to be enabled for scope data to work.</li>
 </ul>
-<h6 id="operation-mode-27">Operation Mode</h6>
+<h6 id="operation-mode-31">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -6433,7 +7028,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-16">Enabled Settings</h6>
+<h6 id="enabled-settings-18">Enabled Settings</h6>
 <p>This operation mode will enable the scope data stream. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -6472,7 +7067,7 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="thm427-1">THM427</h4>
-<h5 id="module-item-description-11">Module Item Description</h5>
+<h5 id="module-item-description-13">Module Item Description</h5>
 <p>The THM427 Module contains 8 channels for use with any thermocouple type as well as Pt100 sensors. Remote cold junction compensation is provided through a SubModule (which is thermocouple type specific) whilst linearization is provided in the SC42. The Module also includes a calibrated 0.2 mA current source for Pt100 sensor excitation.</p>
 <p>SubModules are used with the Module which contain a pair of commonly used miniature E, J, K, and T thermocouple connectors(other types available upon request) with cold-junction circuitry for thermocouple applications.Another SubModule contains a pair of Lemo connectors for Pt100 applications. Any combination of applicable SubModules can be connected to the THM427 Module. The THM427 Module also includes 8 channels for measuring voltage inputs up to ±10 V.</p>
 <p>The Module can be used with :</p>
@@ -6483,7 +7078,7 @@ System Only</td>
 </li>
 <li>With any voltage source up to ±10 V in voltage input mode</li>
 </ul>
-<h6 id="operation-mode-28">Operation Mode</h6>
+<h6 id="operation-mode-32">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -6501,7 +7096,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-17">Enabled Settings</h6>
+<h6 id="enabled-settings-19">Enabled Settings</h6>
 <p>This operation mode will set the Module to a “powered on” state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -6551,14 +7146,14 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-8">Channel Item Description</h5>
+<h5 id="channel-item-description-10">Channel Item Description</h5>
 <p>Each channel operates independently from one another. Some restrictions do apply:</p>
 <ul>
 <li>All channels have the same sample rate.<br />
 </li>
 <li>Channels are grouped where the operation mode must be the same. These groups are: 1 and 2, 3 and 4, 5 and 6 as well as 7 and 8.</li>
 </ul>
-<h6 id="operation-mode-29">Operation Mode</h6>
+<h6 id="operation-mode-33">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by accessing the Module settings. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <colgroup>
@@ -6581,7 +7176,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="voltage-input-settings-8">Voltage Input Settings</h6>
+<h6 id="voltage-input-settings-9">Voltage Input Settings</h6>
 <p>This operation mode is often used when measuring voltage sources without the use of sensors. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table style="width:100%;">
 <colgroup>
@@ -6800,7 +7395,7 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="wsb42x2">WSB42X2</h4>
-<h5 id="module-item-description-12">Module Item Description</h5>
+<h5 id="module-item-description-14">Module Item Description</h5>
 <p>The WSB42X2 Module is used with AC and DC bridge measurements, including strain gauges configured as full, half or quarter bridges as well as inductive displacement transducers (LVDT). The Module offers numerous software selectable features such as constant voltage (AC or DC) and constant current excitation (DC), bridge sensing, bridge completion resistors, shunt calibration, dynamic strain mode and ICP® sensor support. The bridge can be balanced on command.</p>
 <p>The Module can be used with:</p>
 <ul>
@@ -6816,7 +7411,7 @@ System Only</td>
 </li>
 <li>Any ICP® based sensor commonly used to measure vibration, acceleration, force or pressure</li>
 </ul>
-<h6 id="operation-mode-30">Operation Mode</h6>
+<h6 id="operation-mode-34">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -6834,7 +7429,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-18">Enabled Settings</h6>
+<h6 id="enabled-settings-20">Enabled Settings</h6>
 <p>This operation mode will set the Module to a powered on state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -6860,14 +7455,14 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-9">Channel Item Description</h5>
+<h5 id="channel-item-description-11">Channel Item Description</h5>
 <p>Each channel operates independently from one another. Some restrictions do apply:</p>
 <ul>
 <li>AC and DC Voltage Excitation operation modes cannot be used simultaneously.<br />
 </li>
 <li>All channels have the same sample rate.</li>
 </ul>
-<h6 id="operation-mode-31">Operation Mode</h6>
+<h6 id="operation-mode-35">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <colgroup>
@@ -6890,7 +7485,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="voltage-input-settings-9">Voltage Input Settings</h6>
+<h6 id="voltage-input-settings-10">Voltage Input Settings</h6>
 <p>This operation mode is often used when measuring voltage sources without the use of sensors. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table style="width:100%;">
 <colgroup>
@@ -6922,7 +7517,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="icp-input-settings-7">ICP® Input Settings</h6>
+<h6 id="icp-input-settings-8">ICP® Input Settings</h6>
 <p>This operation mode is suitable for ICP® sensors operating from a ±12 V source capable of supplying 4, 8 or 12 mA. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -7159,7 +7754,7 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="wsb42x5">WSB42X5</h4>
-<h5 id="module-item-description-13">Module Item Description</h5>
+<h5 id="module-item-description-15">Module Item Description</h5>
 <p>The WSB42X5 Module is used with AC and DC bridge measurements, including strain gauges configured as full, half or quarter bridges as well as inductive displacement transducers (LVDT). The Module offers numerous software selectable features such as constant voltage (AC or DC) and constant current excitation (DC), bridge sensing, bridge completion resistors, shunt calibration, dynamic strain mode and ICP® sensor support. The bridge can be balanced on command.</p>
 <p>The Module can be used with:</p>
 <ul>
@@ -7175,7 +7770,7 @@ System Only</td>
 </li>
 <li>Any ICP® based sensor commonly used to measure vibration, acceleration, force or pressure</li>
 </ul>
-<h6 id="operation-mode-32">Operation Mode</h6>
+<h6 id="operation-mode-36">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -7193,7 +7788,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-19">Enabled Settings</h6>
+<h6 id="enabled-settings-21">Enabled Settings</h6>
 <p>This operation mode will set the Module to a powered on state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -7219,14 +7814,14 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-10">Channel Item Description</h5>
+<h5 id="channel-item-description-12">Channel Item Description</h5>
 <p>Each channel operates independently from one another. Some restrictions do apply:</p>
 <ul>
 <li>AC and DC Voltage Excitation operation modes cannot be used simultaneously.<br />
 </li>
 <li>All channels have the same sample rate.</li>
 </ul>
-<h6 id="operation-mode-33">Operation Mode</h6>
+<h6 id="operation-mode-37">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <colgroup>
@@ -7249,7 +7844,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="voltage-input-settings-10">Voltage Input Settings</h6>
+<h6 id="voltage-input-settings-11">Voltage Input Settings</h6>
 <p>This operation mode is often used when measuring voltage sources without the use of sensors. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table style="width:100%;">
 <colgroup>
@@ -7281,7 +7876,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="icp-input-settings-8">ICP® Input Settings</h6>
+<h6 id="icp-input-settings-9">ICP® Input Settings</h6>
 <p>This operation mode is suitable for ICP® sensors operating from a ±12 V source capable of supplying 4, 8 or 12 mA. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -7518,7 +8113,7 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="wsb42x6">WSB42X6</h4>
-<h5 id="module-item-description-14">Module Item Description</h5>
+<h5 id="module-item-description-16">Module Item Description</h5>
 <p>The WSB42X6 Module is used with AC and DC bridge measurements, including strain gauges configured as full, half or quarter bridges as well as inductive displacement transducers (LVDT). The Module offers numerous software selectable features such as constant voltage (AC or DC) and constant current excitation (DC), bridge sensing, bridge completion resistors, shunt calibration, dynamic strain mode and ICP® sensor support. The bridge can be balanced on command.</p>
 <p>The Module can be used with:</p>
 <ul>
@@ -7534,7 +8129,7 @@ System Only</td>
 </li>
 <li>Any ICP® based sensor commonly used to measure vibration, acceleration, force or pressure</li>
 </ul>
-<h6 id="operation-mode-34">Operation Mode</h6>
+<h6 id="operation-mode-38">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -7552,7 +8147,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-20">Enabled Settings</h6>
+<h6 id="enabled-settings-22">Enabled Settings</h6>
 <p>This operation mode will set the Module to a powered on state and will enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -7578,14 +8173,14 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-11">Channel Item Description</h5>
+<h5 id="channel-item-description-13">Channel Item Description</h5>
 <p>Each channel operates independently from one another. Some restrictions do apply:</p>
 <ul>
 <li>AC and DC Voltage Excitation operation modes cannot be used simultaneously.<br />
 </li>
 <li>All channels have the same sample rate.</li>
 </ul>
-<h6 id="operation-mode-35">Operation Mode</h6>
+<h6 id="operation-mode-39">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <colgroup>
@@ -7608,7 +8203,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="voltage-input-settings-11">Voltage Input Settings</h6>
+<h6 id="voltage-input-settings-12">Voltage Input Settings</h6>
 <p>This operation mode is often used when measuring voltage sources without the use of sensors. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table style="width:100%;">
 <colgroup>
@@ -7640,7 +8235,7 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h6 id="icp-input-settings-9">ICP® Input Settings</h6>
+<h6 id="icp-input-settings-10">ICP® Input Settings</h6>
 <p>This operation mode is suitable for ICP® sensors operating from a ±12 V source capable of supplying 4, 8 or 12 mA. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -7877,7 +8472,7 @@ System Only</td>
 </tbody>
 </table>
 <h4 id="can42s2">CAN42S2</h4>
-<h5 id="module-item-description-15">Module Item Description</h5>
+<h5 id="module-item-description-17">Module Item Description</h5>
 <p>The CAN42S2 Module provides interfaces to two CAN or CAN FD (CAN with Flexible Data-Rate) busses. CAN FD is an extension of the original CAN (Controller Area Network) protocol, which allows for higher data bandwidth. Messages received from CAN are time-stamped to synchronize their reception with analog and digital measurements from other Modules in the system. A self-reception of sent messages is provided as well as two operational modes, Participate and Listen-Only mode.</p>
 <p>The CAN42S2 Module features independent channel filtering and can be used:</p>
 <ul>
@@ -7885,7 +8480,7 @@ System Only</td>
 </li>
 <li>When controlling CAN and CAN FD based devices</li>
 </ul>
-<h6 id="operation-mode-36">Operation Mode</h6>
+<h6 id="operation-mode-40">Operation Mode</h6>
 <p>The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -7903,9 +8498,9 @@ System Only</td>
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-12">Channel Item Description</h5>
+<h5 id="channel-item-description-14">Channel Item Description</h5>
 <p>Each channel operates independently from one another. CAN FD is an extension of the original CAN (Controller Area Network) protocol, which allows for higher data bandwidth. Messages received from CAN are time-stamped to synchronize their reception with analog and digital measurements from other Modules in the system. A self-reception of sent messages is provided as well as two operational modes, Participate and Listen-Only mode.</p>
-<h6 id="operation-mode-37">Operation Mode</h6>
+<h6 id="operation-mode-41">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -8134,7 +8729,7 @@ so that they can be received, and will signal errors on the bus when they occur.
 </tbody>
 </table>
 <h4 id="xmc237">XMC237</h4>
-<h5 id="module-item-description-16">Module Item Description</h5>
+<h5 id="module-item-description-18">Module Item Description</h5>
 <p>The XMC237 can be configured with a mixture of channel types.</p>
 <p>Popular configurations allow compatibility with the following signals:</p>
 <ul>
@@ -8146,7 +8741,7 @@ so that they can be received, and will signal errors on the bus when they occur.
 </li>
 <li>Accurate GPS time/time accuracy information as well as position/position accuracy information</li>
 </ul>
-<h6 id="operation-mode-38">Operation Mode</h6>
+<h6 id="operation-mode-42">Operation Mode</h6>
 <p>Gets or sets the Module operation mode. The active Module operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -8164,7 +8759,7 @@ so that they can be received, and will signal errors on the bus when they occur.
 </tr>
 </tbody>
 </table>
-<h6 id="enabled-settings-21">Enabled Settings</h6>
+<h6 id="enabled-settings-23">Enabled Settings</h6>
 <p>This operation mode will set the Module in a “powered on” state and enable data streaming. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -8190,9 +8785,9 @@ so that they can be received, and will signal errors on the bus when they occur.
 </tr>
 </tbody>
 </table>
-<h5 id="channel-item-description-13">Channel Item Description</h5>
+<h5 id="channel-item-description-15">Channel Item Description</h5>
 <p>Each channel operates independently from one another. CAN FD is an extension of the original CAN (Controller Area Network) protocol, which allows for higher data bandwidth. Messages received from CAN are time-stamped to synchronize their reception with analog and digital measurements from other Modules in the system. A self-reception of sent messages is provided as well as two operational modes, Participate and Listen-Only mode.</p>
-<h6 id="operation-mode-39">Operation Mode</h6>
+<h6 id="operation-mode-43">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -8416,7 +9011,7 @@ so that they can be received, and will signal errors on the bus when they occur.
 </li>
 <li>Any voltage source up to ±10 V in voltage input mode</li>
 </ul>
-<h6 id="operation-mode-40">Operation Mode</h6>
+<h6 id="operation-mode-44">Operation Mode</h6>
 <p>The active channel operation mode can be retrieved by reading from the <em>/operationMode/</em> and modified by writing to the <em>/operationMode/</em> endpoint. See the tables below for all supported mode options and mode settings.</p>
 <table>
 <thead>
@@ -8434,7 +9029,7 @@ so that they can be received, and will signal errors on the bus when they occur.
 </tr>
 </tbody>
 </table>
-<h6 id="voltage-input-settings-12">Voltage Input Settings</h6>
+<h6 id="voltage-input-settings-13">Voltage Input Settings</h6>
 <p>This operation mode is often used when measuring voltage sources without the use of sensors. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table>
 <colgroup>
@@ -8472,7 +9067,7 @@ so that they can be received, and will signal errors on the bus when they occur.
 </tr>
 </tbody>
 </table>
-<h6 id="icp-input-settings-10">ICP® Input Settings</h6>
+<h6 id="icp-input-settings-11">ICP® Input Settings</h6>
 <p>This operation mode is often used when measuring ICP® based accelerometers, force and pressure sensors. The settings below can be retrieved by reading from the <em>/itemSettings/</em> and modified by writing to the <em>/itemSettings/</em> endpoint.</p>
 <table style="width:100%;">
 <colgroup>
@@ -9141,6 +9736,89 @@ duration = \Big(\frac{1}{Sampling Rate (Hz)}\Big)
 <p>High network traffic in the PTP synchronisation path can degrade synchronisation accuracy. Loss of accuracy can become even more pronounced if the network infrastructure is not PTP compliant.</p>
 <h3 id="temperature">Temperature</h3>
 <p><strong>Quantus</strong>Series devices can synchronise accurately over the entire operational range of temperatures. However, sudden temperature changes have a degraded synchronisation accuracy. A <strong>Quantus</strong>Series device’s internal temperature should be allowed to stabilise before a high accuracy can be achieved.</p>
+<h2 id="ptp-profile">PTP Profile</h2>
+<p>The <strong>Quantus</strong>Series devices use the following attributes based on the Request-Response Default profile per IEEE 1588-2008 Annex J.3:</p>
+<table>
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 32%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">PTP attribute / option</th>
+<th style="text-align: left;">Default value</th>
+<th style="text-align: left;">Configurable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Best master clock Algorithm</td>
+<td style="text-align: left;">Default per IEEE 1588- 2008 clause 9.3.2</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Path delay measurement</td>
+<td style="text-align: left;">Delay request-response</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Network transport protocol</td>
+<td style="text-align: left;">UDP/IPv4</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Transmission mode</td>
+<td style="text-align: left;">Multicast</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">One/two step clock</td>
+<td style="text-align: left;">Two step</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">defaultDS.domainNumber</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">portDS.logAnnounceInterval</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">portDS.logSyncInterval</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">portDS.logMinDelayReqInterval</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">portDS.announceReceiptTimeout</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">defaultDS.priority2</td>
+<td style="text-align: left;">128</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">defaultDS.priority2</td>
+<td style="text-align: left;">128</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">defaultDS.slaveOnly</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+</tbody>
+</table>
 <h2 id="configuring-ptp">Configuring PTP</h2>
 <p>PTP synchronisation of the <strong>Quantus</strong>Series device can be enabled, disabled and configured using the web interface. Open the web server and navigate to the System Settings, where the <em>PTP synchronisation</em> tab is available.</p>
 <p>Configuration options are:</p>
