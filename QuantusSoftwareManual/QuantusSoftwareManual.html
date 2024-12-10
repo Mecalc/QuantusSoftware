@@ -139,7 +139,7 @@
 <li><a href="#sample-type">Sample Type</a></li>
 </ul></li>
 <li><a href="#known-issues">Known issues</a></li>
-<li><a href="#supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.4.2</span></a>
+<li><a href="#supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.4.3</span></a>
 <ul>
 <li><a href="#local-storage">Local storage</a></li>
 <li><a href="#supported-hardware">Supported Hardware</a>
@@ -287,9 +287,6 @@
 <li><a href="#analog-channel-header">Analog Channel Header</a></li>
 <li><a href="#cancan-fd-channel-header">CAN/CAN FD Channel Header</a></li>
 <li><a href="#gps-channel-header">GPS Channel Header</a></li>
-<li><a href="#triggered-status-channel-header">Triggered Status Channel Header</a></li>
-<li><a href="#triggered-stats-channel-header">Triggered Stats Channel Header</a></li>
-<li><a href="#triggered-channel-header">Triggered Channel Header</a></li>
 </ul></li>
 <li><a href="#expected-data-types">Expected Data Types</a>
 <ul>
@@ -342,9 +339,14 @@
 <li><strong>Programming Language Independent</strong>: Almost all programming languages have support for connecting to REST Interfaces.</li>
 <li><strong>Accelerated Integration</strong>: Integration time is reduced compared to other types of interfaces.</li>
 </ul>
-<p>The current release of <strong>Quantus</strong>Software is <span class="QSoftwareVersion"><strong>Q</strong> 2.4.2</span>.</p>
+<p>The current release of <strong>Quantus</strong>Software is <span class="QSoftwareVersion"><strong>Q</strong> 2.4.3</span>.</p>
 <h1 id="changelog">Changelog</h1>
-<p><strong>Q2.3.4 to <span class="QSoftwareVersion"><strong>Q</strong> 2.4.2</span></strong></p>
+<p><strong>Q2.4.2 to <span class="QSoftwareVersion"><strong>Q</strong> 2.4.3</span></strong></p>
+<ul>
+<li><strong>Q</strong>Server - Fixed a bug where the Tacho Generic Channel Header timestamp was incorrect.</li>
+<li><strong>Q</strong>Server - ALO Mirroring support added for DCH42 module.</li>
+</ul>
+<p><strong>Q2.3.4 to Q2.4.2</strong></p>
 <ul>
 <li>New Features
 <ul>
@@ -1435,7 +1437,7 @@ DataStats Stats</td>
 </tr>
 </tbody>
 </table>
-<h1 id="supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.4.2</span></h1>
+<h1 id="supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.4.3</span></h1>
 <p><strong>Quantus</strong>Software supports the following features:</p>
 <table style="width:69%;">
 <colgroup>
@@ -9607,158 +9609,6 @@ Level crossing detected: 1<br />
 <td>Leap Seconds</td>
 <td>The GPS leap seconds.</td>
 <td>1</td>
-</tr>
-</tbody>
-</table>
-<h4 id="triggered-status-channel-header">Triggered Status Channel Header</h4>
-<p>The triggered status channel header provides information regarding the trigger status and trigger configuration of the channel.</p>
-<table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 19%" />
-<col style="width: 46%" />
-<col style="width: 11%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Data type</th>
-<th>Member name</th>
-<th>Description</th>
-<th>Size (Bytes)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>32-bit unsigned integer</td>
-<td>Trigger status</td>
-<td>Enumeration indicating the trigger status of the channel: Reset: 0<br />
-Start: 1<br />
-Pre-trigger: 2<br />
-Ready: 2<br />
-Armed: 3<br />
-Triggered: 4<br />
-Finished: 6<br />
-</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>32-bit unsigned integer</td>
-<td>RAM Connection Setup</td>
-<td></td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>32-bit unsigned integer</td>
-<td>RAM Status</td>
-<td></td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>32-bit unsigned integer</td>
-<td>Trigger Address</td>
-<td></td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>32-bit unsigned integer</td>
-<td>Pre-trigger Length</td>
-<td></td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<h4 id="triggered-stats-channel-header">Triggered Stats Channel Header</h4>
-<p>The triggered stats channel header serves as a snapshot as to what is happening on the module frontend.</p>
-<table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 19%" />
-<col style="width: 46%" />
-<col style="width: 11%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Data type</th>
-<th>Member name</th>
-<th>Description</th>
-<th>Size (Bytes)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>32-bit floating point (float)</td>
-<td>Min</td>
-<td>The minimum value for this block of data</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>32-bit floating point (float)</td>
-<td>Max</td>
-<td>The maximum value for this block of data</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>32-bit floating point (float)</td>
-<td>RMS</td>
-<td>The RMS value for this block of data</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>32-bit floating point (float)</td>
-<td>Average</td>
-<td>The average value for this block of data</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>32-bit floating point (float)</td>
-<td>Standard deviation</td>
-<td>The Standard deviation value for this block of data</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<h4 id="triggered-channel-header">Triggered Channel Header</h4>
-<table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 19%" />
-<col style="width: 46%" />
-<col style="width: 11%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Data type</th>
-<th>Member name</th>
-<th>Description</th>
-<th>Size (Bytes)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>64-bit unsigned integer</td>
-<td>Block index</td>
-<td>The index of the data block.<br />
-</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>64-bit unsigned integer</td>
-<td>Number of samples in block</td>
-<td>The number of samples in the block<br />
-</td>
-<td>8</td>
-</tr>
-<tr class="odd">
-<td>64-bit unsigned integer</td>
-<td>Number of blocks</td>
-<td>The total number of blocks in the data buffer</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>32-bit floating point (float)</td>
-<td>Scaling factor</td>
-<td>The scaling factor that is to be used to scale the data.</td>
-<td>4</td>
 </tr>
 </tbody>
 </table>
