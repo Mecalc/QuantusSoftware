@@ -1,0 +1,47 @@
+gantt
+    title Measurement flow
+    dateFormat YYYY-MM-DD
+    axisFormat %
+    todayMarker off
+    
+    section Device
+    Bootup Complete: bootup, 2021-01-01, 3d
+    
+    section Measurement
+    Initial Measurement: initialMeasurement, after applySettings1, 16d
+    Second Measurement: secondMeasurement, after clientApplySettings2, 16d
+
+    section **Q**Server
+    Startup: startup, after bootup, 2d
+    Set settings: setSettings1, after startup, 12h
+    Apply settings, starts the measurement: applySettings1, after setSettings1, 12h
+    
+    section Timestamps
+    Sequence number = 0: after applySettings1, 1h
+    Tacho timestamp = 0: after applySettings1, 1h
+    CAN/CAN FD timestamp = 0: after applySettings1, 1h
+    Elapsed time 1: elapsedtime1, after applySettings1, 9d
+    Elapsed time 2: elapsedtime2, after elapsedtime1, 6d
+    Elapsed time 3: elapsedtime3, after clientApplySettings2, 13d
+    
+    section Client
+    Set settings: clientSetSettings1, 2021-01-15, 12h
+    Apply settings, no restart required: clientApplySettings1, after clientSetSettings1, 12h
+    Sequence number = X: after clientApplySettings1, 1h
+    Tacho timestamp = Elapsed time 1: after clientApplySettings1, 1h
+    CAN/CAN FD timestamp = Elapsed time 1: after clientApplySettings1, 1h
+    Data streaming: clientStreaming1, after clientApplySettings1, 6d
+    Sequence number = X + Y: after elapsedtime2, 1h
+    Tacho timestamp = Elapsed time 1 + Elapsed time 2: after elapsedtime2, 1h
+    CAN/CAN FD timestamp = Elapsed time 1 + Elapsed time 2: after elapsedtime2, 1h
+    
+    Set settings: clientSetSettings2, 2021-01-22, 12h
+    Apply settings, restart required: clientApplySettings2, after clientSetSettings2, 12h
+    
+    Sequence number = 0: after clientApplySettings2, 1h
+    Tacho timestamp = 0: after clientApplySettings2, 1h
+    CAN/CAN FD timestamp = 0: after clientApplySettings2, 1h
+    Data streaming: clientStreaming2, after clientApplySettings2, 13d
+    Sequence number = Z: after elapsedtime3, 1h
+    Tacho timestamp = Elapsed time 3: after elapsedtime3, 1h
+    CAN/CAN FD timestamp = Elapsed time 3: after elapsedtime3, 1h

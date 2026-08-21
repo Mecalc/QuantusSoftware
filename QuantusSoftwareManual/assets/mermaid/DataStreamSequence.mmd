@@ -1,0 +1,18 @@
+sequenceDiagram
+	participant User
+	participant QuantusSoftware StreamingPort
+	participant QuantusSoftware REST	
+	User->>QuantusSoftware REST: Determine the port number using dataStream/setup endpoint
+	User->>QuantusSoftware StreamingPort: Establish a connection to the streaming port (example port 8085)
+    User->>QuantusSoftware REST: Enable data streaming, by setting the Streaming State on the item/settings endpoint
+    User->>QuantusSoftware REST: Apply the settings
+    activate QuantusSoftware StreamingPort
+    QuantusSoftware StreamingPort->>User: Data for streaming-enabled items
+    QuantusSoftware StreamingPort->>User: Data for streaming-enabled items
+    QuantusSoftware StreamingPort->>User: ...
+    QuantusSoftware StreamingPort->>User: Data for streaming-enabled items
+    User->>QuantusSoftware REST: Disable data streaming, by setting the Streaming State on item/settings endpoint
+    QuantusSoftware StreamingPort->>User: Receive the remaining data to ensure the buffers are empty
+    User->>QuantusSoftware StreamingPort: Close connection to streaming port
+    deactivate QuantusSoftware StreamingPort
+

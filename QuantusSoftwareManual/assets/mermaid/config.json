@@ -1,0 +1,43 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "darkMode": false,
+    "background": "#f4f4f4",
+    "primaryColor": "#d6eef3",
+    "secondaryColor": "#fff",
+    "textColor": "#5d5d5d",
+    "primaryTextColor": "#4e4e4e",
+    "fontSize": "12px",
+    "primaryBorderColor": "#74cee2",
+    "noteBkgColor": "#eee",
+    "noteTextColor": "#5d5d5d",
+    "noteBorderColor": "#74cee2",
+    "activationBorderColor": "none",
+    "activationBkgColor": "#f4433633",
+    "clusterBkg": "#f4f4f4",
+    "clusterBorder": "#74cee2",
+    "fontFamily": "\"roboto\", Helvetica, Arial, sans-serif;"
+  },
+  "flowchart": {
+    "diagramPadding": 5,
+    "fontFamily": "\"roboto\", Helvetica, Arial, sans-serif;",
+    "nodeSpacing": 15
+  },
+  "sequence": {
+    "fontFamily": "\"roboto\", Helvetica, Arial, sans-serif;",
+    "activationWidth": 15,
+    "diagramMarginY": 5,
+    "actorMargin": 80,
+    "boxMargin": 15,
+    "messageAlign": "center",
+    "mirrorActors": true,
+    "bottomMarginAdj": 20,
+    "useMaxWidth": true,
+    "rightAngles": true,
+    "showSequenceNumbers": true,
+    "messageFontSize": 12,
+    "noteFontSize": 12,
+    "wrap": true
+  },
+  "themeCSS": ".messageText {stroke: none;} .actor-line {stroke-dasharray: 3, 3;}"
+}

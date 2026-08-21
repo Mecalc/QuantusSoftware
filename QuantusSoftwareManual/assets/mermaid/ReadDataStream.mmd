@@ -1,0 +1,18 @@
+graph TD
+	establishConnection((Establish a connection)) --> receivePacketHeader(Receive Packet Header)
+	receivePacketHeader --> checkPayloadType{{Check Payload Type}}
+    checkPayloadType --> |Data / 0| receiveGenericHeader(Read Generic Channel Header)
+	receiveGenericHeader --> checkChannelType{{Check Channel Type}}
+	checkChannelType --> |Analog| checkSampleType(Check Sample Type)
+	checkSampleType --> |0 = Processed| readProcessedAnalogChannelHeader(Read Processed Channel Header)
+    checkSampleType --> |1,2,3 = Raw| readRawAnalogChannelHeader(Read Raw Channel Header)
+	checkChannelType --> |CAN FD| readCanFdChannelStats(Read CAN FD Channel Header)
+    checkChannelType --> |Other| readData(Read data of size Channel Data Size)
+	readProcessedAnalogChannelHeader --> readData
+	readRawAnalogChannelHeader --> readData
+	readCanFdChannelStats --> readData
+	readData --> moreAvailable{{Size of data read in packet < Packet Payload Size}}
+	moreAvailable --> |True| receiveGenericHeader
+	moreAvailable --> |False| receivePacketHeader
+	checkPayloadType --> |Unkown| receiveUnknownPayload(Read and discard Payload Size bytes)
+	receiveUnknownPayload --> receivePacketHeader

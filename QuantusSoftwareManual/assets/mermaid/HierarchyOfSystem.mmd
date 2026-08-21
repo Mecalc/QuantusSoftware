@@ -1,0 +1,30 @@
+graph TD
+  Controller(Controller) 
+
+  Controller --> SC1(Signal Conditioner 1)
+  Controller --> SC2(Signal Conditioner 2)
+
+
+  SC1 --> Mod1(Module 1)
+  SC1 --> Mod2(.)
+  SC1 --> Mod3(.)
+  SC1 --> Mod4(.)
+
+  subgraph  
+    Mod1 --> Chan1(Channel 1)
+    Mod1 --> Chan2(Channel 2)
+    Mod1 --> Chan3(.)
+    Mod1 --> Chan4(.)
+  end
+
+  SC2 --> Mod5(.)
+  SC2 --> Mod6(.)
+  SC2 --> Mod7(.)
+  SC2 --> Mod8(Module n)
+
+  subgraph  
+    Mod8 --> Chan29(.)
+    Mod8 --> Chan30(.)
+    Mod8 --> Chan31(.)
+    Mod8 --> Chan32(Channel n)
+  end

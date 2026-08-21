@@ -1,0 +1,20 @@
+sequenceDiagram
+	participant User
+	participant QuantusSoftware
+	participant Hardware
+	
+	QuantusSoftware-->>Hardware: Configure default settings
+
+	User->>QuantusSoftware: Get the Operation Mode
+	QuantusSoftware->>User: Return the cached Operation Mode
+	User->>QuantusSoftware: Update the Operation Mode
+
+	User->>QuantusSoftware: Get the item settings
+	QuantusSoftware->>User: Return the cached item settings
+	User->>QuantusSoftware: Update the item settings
+	
+	
+	Note over User,QuantusSoftware: Repeat above sequence for all settings
+
+	User->>QuantusSoftware: Apply settings
+	QuantusSoftware-->>Hardware: Configure hardware with cached settings
