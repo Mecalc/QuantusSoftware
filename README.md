@@ -28,4 +28,4 @@ Explore these repositories on the [Mecalc GitHub page](https://github.com/orgs/M
 
 ## Online User Manual
 
-The latest User Manual is available [here](https://htmlpreview.github.io/?https://github.com/Mecalc/QuantusSoftware/blob/main/QuantusSoftwareManual/QuantusSoftwareManual.html)
+The latest User Manual is available [here](https://mecalc.github.io/QuantusSoftware/QuantusSoftwareManual/QuantusSoftwareManual.html)
