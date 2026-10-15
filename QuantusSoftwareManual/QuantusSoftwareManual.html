@@ -167,7 +167,7 @@
 <li><a href="#sample-type">Sample Type</a></li>
 </ul></li>
 <li><a href="#known-issues">Known issues</a></li>
-<li><a href="#supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.5.1</span></a>
+<li><a href="#supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.5.2</span></a>
 <ul>
 <li><a href="#local-storage">Local storage</a></li>
 <li><a href="#supported-hardware">Supported Hardware</a>
@@ -395,9 +395,27 @@
 <li><strong>Programming Language Independent</strong>: Almost all programming languages have support for connecting to REST Interfaces.</li>
 <li><strong>Accelerated Integration</strong>: Integration time is reduced compared to other types of interfaces.</li>
 </ul>
-<p>The current release of <strong>Quantus</strong>Software is <span class="QSoftwareVersion"><strong>Q</strong> 2.5.1</span>.</p>
+<p>The current release of <strong>Quantus</strong>Software is <span class="QSoftwareVersion"><strong>Q</strong> 2.5.2</span>.</p>
 <h1 id="changelog">Changelog</h1>
-<p><strong>Q2.4.16 to <span class="QSoftwareVersion"><strong>Q</strong> 2.5.1</span></strong></p>
+<p><strong>Q2.5.1 to <span class="QSoftwareVersion"><strong>Q</strong> 2.5.2</span></strong></p>
+<ul>
+<li>PQ45 - Power supply firmware update “0m” to improve battery charger startup reliability at higher input voltages (&gt; 24V), ensuring more consistent operation.</li>
+<li>Bug fixes
+<ul>
+<li><strong>Q</strong>Server
+<ul>
+<li>Synchronise the phase of function generator channels on an ALO module after updating channel settings.</li>
+<li>Fixed ALO42S setting name for “Module Status Output” feature.</li>
+<li>Fixed a warning message for an invalid settings configuration on the ICT45 Module node.</li>
+<li>Fixed the WSB42X analog phase delay when the highest sample rate is used.</li>
+</ul></li>
+<li><strong>Q</strong>Protocol
+<ul>
+<li>Fixed an enum field name for a CHG42S9 charge sensitivity option.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Q2.4.16 to Q2.5.1</strong></p>
 <ul>
 <li>New Features
 <ul>
@@ -1575,7 +1593,7 @@ DataStats Stats</td>
 </tr>
 </tbody>
 </table>
-<h1 id="supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.5.1</span></h1>
+<h1 id="supported-features-in-qunknown">Supported Features in <span class="QSoftwareVersion"><strong>Q</strong> 2.5.2</span></h1>
 <p><strong>Quantus</strong>Software supports the following features:</p>
 <table style="width:69%;">
 <colgroup>
@@ -4235,6 +4253,20 @@ where x can be<br />
 <td></td>
 <td>Applies Auto-Zero settings either system-wide if no query string was provided or to the item specified by the query string</td>
 </tr>
+<tr class="even">
+<td>/channel/userDefinedName</td>
+<td>GET</td>
+<td>/?itemId=x</td>
+<td></td>
+<td>Returns the display name for the channel item as specified by the user in QAcquire or by means of the PUT endpoint.</td>
+</tr>
+<tr class="odd">
+<td>/channel/userDefinedName</td>
+<td>PUT</td>
+<td>/?itemId=x</td>
+<td>The name as value</td>
+<td>Updates the display name for the channel item in QAcquire which can be retrieved with the GET endpoint.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="measurement-configuration">Measurement Configuration</h2>
@@ -5087,7 +5119,7 @@ send at least the block size number of bytes.</p>
 <td>5 V Out</td>
 </tr>
 <tr class="odd">
-<td>Extended Frame</td>
+<td>Module Status Output</td>
 <td>Gets or sets the module status output.</td>
 <td>Open circuit<br/>Short circuit<br/>Output Voltage</td>
 <td>Open circuit</td>
@@ -5161,7 +5193,7 @@ send at least the block size number of bytes.</p>
 <td>5 V Out</td>
 </tr>
 <tr class="odd">
-<td>Extended Frame</td>
+<td>Module Status Output</td>
 <td>Gets or sets the module status output.</td>
 <td>Open circuit<br/>Short circuit<br/>Output Voltage</td>
 <td>Open circuit</td>
@@ -5235,7 +5267,7 @@ send at least the block size number of bytes.</p>
 <td>5 V Out</td>
 </tr>
 <tr class="odd">
-<td>Extended Frame</td>
+<td>Module Status Output</td>
 <td>Gets or sets the module status output.</td>
 <td>Open circuit<br/>Short circuit<br/>Output Voltage</td>
 <td>Open circuit</td>
@@ -5297,7 +5329,7 @@ send at least the block size number of bytes.</p>
 <td>5 V Out</td>
 </tr>
 <tr class="odd">
-<td>Extended Frame</td>
+<td>Module Status Output</td>
 <td>Gets or sets the module status output.</td>
 <td>Open circuit<br/>Short circuit<br/>Output Voltage</td>
 <td>Open circuit</td>
@@ -5338,7 +5370,7 @@ There are no settings available.</p>
 <td>5 V Out</td>
 </tr>
 <tr class="odd">
-<td>Extended Frame</td>
+<td>Module Status Output</td>
 <td>Gets or sets the module status output.</td>
 <td>Open circuit<br/>Short circuit<br/>Output Voltage</td>
 <td>Open circuit</td>
@@ -5376,7 +5408,7 @@ There are no settings available.</p>
 <td>5 V Out</td>
 </tr>
 <tr class="odd">
-<td>Extended Frame</td>
+<td>Module Status Output</td>
 <td>Gets or sets the module status output.</td>
 <td>Open circuit<br/>Short circuit<br/>Output Voltage</td>
 <td>Open circuit</td>
